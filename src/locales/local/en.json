@@ -1,0 +1,14 @@
+{
+    "language": "EN",
+    "menu": {
+        "menu": "Menu",
+        "paper": "Paper",
+        "glass": "Glass",
+        "plastic": "Plastic",
+        "metal": "Metal",
+        "bio": "Bio",
+        "ecoZone": "Eco Zone",
+        "otherWaste": "Other Waste",
+        "ecoReport": "Eco Report"
+    }
+}

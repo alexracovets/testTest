@@ -1,0 +1,29 @@
+@import '../../global/variable.scss';
+
+.first__screen {
+    height: calc(100dvh - 2.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+
+    .container {
+        position: relative;
+        width: 100%;
+        max-width: calc(100% - 19rem);
+        height: 100%;
+        padding: 0.5rem;
+        border-radius: 2rem;
+        background-color: $base-yellow;
+        box-shadow: 0 0 0.5rem $yellow-shadow;
+        overflow: hidden;
+
+        canvas {
+            border-radius: 1.5rem;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+}

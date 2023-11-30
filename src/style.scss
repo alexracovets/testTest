@@ -1,0 +1,28 @@
+@import './global/fonts.scss';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body,
+#avrora {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+section {
+    padding: 1rem;
+}
+
+canvas {
+    background-color: #cbcbcb;
+}
+
+button,
+a {
+    cursor: pointer;
+}

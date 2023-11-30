@@ -1,0 +1,14 @@
+{
+    "language": "UA",
+    "menu": {
+        "menu": "Меню",
+        "paper": "Папір",
+        "glass": "Скло",
+        "plastic": "Пластик",
+        "metal": "Метал",
+        "bio": "Біо",
+        "ecoZone": "Еко Зона",
+        "otherWaste": "Інші Відходи",
+        "ecoReport": "Еко Звіт"
+    }
+}

@@ -1,0 +1,129 @@
+@import '../../global/variable.scss';
+
+.menu__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 18rem;
+    height: 100%;
+    padding: 2rem 1rem;
+    border-radius: 2rem;
+    background-color: $base-yellow;
+    box-shadow: 0 0 0.5rem 0 $yellow-shadow;
+
+    .menu {
+        font-size: 2rem;
+        text-align: center;
+        color: $base-black;
+        font-family: $font-rounds;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+
+    .line {
+        width: 100%;
+        background-color: $base-light_gray;
+        height: 0.2rem;
+        border-radius: 0.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 4rem;
+        margin-bottom: 0.75rem;
+        padding-left: 1rem;
+        border: none;
+        border-radius: 1rem;
+        background-color: $base-light_gray;
+        box-shadow: 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.1254901961);
+        overflow: hidden;
+        transform: translateY(0);
+        transition: all ease-in 300ms;
+
+        &.disabled {
+            opacity: .4;
+            transform: translateY(0.25rem);
+            box-shadow: 0.125rem 0 #00000020;
+        }
+
+        .text {
+            font-size: 1.4rem;
+            color: $base-gray;
+            font-family: $font-mont;
+            font-weight: bold;
+        }
+
+        .image {
+            width: 5rem;
+            height: 100%;
+            border-radius: 1rem;
+            background-color: $base-white;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &.paper {
+                background-color: #5e8bff;
+            }
+
+            &.glass {
+                background-color: #49ad0b;
+            }
+
+            &.plastic {
+                background-color: #eebe40;
+            }
+
+            &.metal {
+                background-color: #d73b3b;
+            }
+
+            &.bio {
+                background-color: #9F5804;
+            }
+
+            &.eco {
+                background-color: #e2e2e2;
+            }
+
+            &.report {
+                background-color: #4b51ff;
+            }
+
+            &.other {
+                background-color: #b1b1b1;
+            }
+        }
+    }
+
+    .swither {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+
+        button {
+            font-size: 1.75rem;
+            color: $base-black;
+            font-weight: bold;
+            font-family: $font-rubik;
+            text-transform: uppercase;
+            background-color: transparent;
+            border: none;
+        }
+
+        .spliter {
+            width: 0.2rem;
+            background-color: $base-black;
+            height: 1.5rem;
+            margin: 0 0.5rem;
+        }
+    }
+}
