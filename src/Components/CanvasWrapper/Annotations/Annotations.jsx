@@ -1,15 +1,14 @@
-import { useSnapshot } from "valtio";
+import { useSelector } from 'react-redux';
 
 import Annotation from "./Annotation/Annotation";
-import { stateAnnotations } from "../../../store/stateAnnotations";
 
 export default function Annotations() {
-    const snapAnnotations = useSnapshot(stateAnnotations);
+    const stateAnnotations = useSelector((state) => state.stateAnnotations);
 
     return (
         <>
             {
-                snapAnnotations.annotation.map((item, index) => {
+                stateAnnotations.annotation.map((item, index) => {
                     return <Annotation key={index} item={item} />
                 })
             }

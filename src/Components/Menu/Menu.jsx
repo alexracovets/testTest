@@ -1,21 +1,20 @@
-import { useSnapshot } from "valtio";
 import { useTranslation } from "react-i18next";
+import { useSelector } from 'react-redux';
 
 import MenuBtn from "./MenuBtn/MenuBtn";
-import { stateMenu } from "../../store/stateMenu";
 import LanguageSwitcher from "./LanguageSwitcher/LanguageSwitcher";
 
-import s from './Menu.module.scss'; 
+import s from './Menu.module.scss';
 
 export default function Menu() {
+    const stateMenu = useSelector((state) => state.stateMenu);
     const { t } = useTranslation();
-    const snapMenu = useSnapshot(stateMenu);
 
-    const renderBtn = () => snapMenu.btns.map((button) =>
+    const renderBtn = () => stateMenu.btns.map((button) =>
         <MenuBtn item={button} key={button.id} />
     );
 
-    const renderLink = () => snapMenu.links.map((button) =>
+    const renderLink = () => stateMenu.links.map((button) =>
         <MenuBtn item={button} key={button.id} />
     );
 
