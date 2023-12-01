@@ -23,8 +23,8 @@ export default function Svg(color) {
 
     return (
         <group
-            position={[-3.3, 0.2, -3.1]}
-            scale={[0.12, 0.12, 0.12]}
+            position={[-4, 0.2, -4]}
+            scale={[0.15, 0.15, 0.15]}
             rotation={[Math.PI / 2, 0, 2 * Math.PI]}
         >
             {shapes.map((item, index) =>
