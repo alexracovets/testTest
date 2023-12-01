@@ -7,57 +7,51 @@ const stateMenu = createSlice({
         btns: [
             {
                 name: 'paper',
-                active: true,
                 color: '#5E8BFF',
+                active: true,
                 annotation: [2, 6, 8, 9],
-                annotationImage: './img/annotations/paper.svg',
                 id: 1
             },
             {
                 name: 'glass',
-                active: true,
                 color: '#49AD0B',
+                active: true,
                 annotation: [2, 6, 8],
-                annotationImage: './img/annotations/glass.svg',
                 id: 2
             },
             {
                 name: 'plastic',
-                active: true,
                 color: '#EEBE40',
+                active: true,
                 annotation: [1, 2, 6, 8],
-                annotationImage: './img/annotations/paper.svg',
                 id: 3
             },
             {
                 name: 'metal',
-                active: true,
                 color: '#D73B3B',
+                active: true,
                 annotation: [2, 6, 8],
-                annotationImage: './img/annotations/metal.svg',
                 id: 4
             },
             {
                 name: 'bio',
-                active: true,
                 color: '#9F5804',
+                active: true,
                 annotation: [2, 6, 8],
                 id: 5
             },
             {
                 name: 'other',
-                active: true,
                 color: '#E2E2E2',
+                active: true,
                 annotation: [2, 4, 6, 8],
-                annotationImage: './img/annotations/eco-report.svg',
                 id: 6
             },
             {
                 name: 'eco',
-                active: true,
                 color: '#B1B1B1',
+                active: true,
                 annotation: [3, 5, 7],
-                annotationImage: './img/annotations/eco-zone.svg',
                 id: 7
             }
 

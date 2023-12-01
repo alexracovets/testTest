@@ -14,11 +14,11 @@ Part.propTypes = {
 
 export default function Part({ index, color, thetaLength, length }) {
     const [whiteTexture] = useLoader(THREE.TextureLoader, [matcapWhite]);
-    
+
     return (
         <group>
-            <Circle args={[5, 20, thetaLength * index, thetaLength]}  rotation={[-Math.PI / 2, 0, -Math.PI / 2]}>
-                <meshStandardMaterial color={color}   />
+            <Circle args={[5, 20, thetaLength * index, thetaLength]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]}>
+                <meshStandardMaterial color={color} side={THREE.DoubleSide} />
             </Circle>
             {length > 1 &&
                 <group rotation={[-Math.PI / 2, 0, thetaLength * index]}>
