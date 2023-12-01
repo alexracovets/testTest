@@ -51,7 +51,7 @@ const stateMenu = createSlice({
                 name: 'eco',
                 color: '#B1B1B1',
                 active: true,
-                annotation: [3, 5, 7],
+                annotation: [3, 5, 7,8],
                 id: 7
             }
 

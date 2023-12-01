@@ -51,7 +51,7 @@ const stateAnnotations = createSlice({
                 position: [50, 0, 9],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", '#49AD0B','#EEBE40','#D73B3B','#9F5804','#E2E2E2','#B1B1B1'],
-                id: 7
+                id: 8
             }
         ]
     },
