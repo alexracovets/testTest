@@ -12,13 +12,14 @@ export default function Parts({ colors }) {
     const [thetaLength, setThetaLength] = useState(null);
 
     useEffect(() => {
-        setThetaLength((2 * Math.PI) / colors.length);
+        const newTheta = (2 * Math.PI) / colors.length;
+        isFinite(newTheta) && setThetaLength(newTheta);
     }, [colors, thetaLength])
 
     return (
         <>
             {
-                colors.map((color, index) => {
+                colors.length > 0 && colors.map((color, index) => {
                     return (
                         <Part key={index} index={index} color={color} thetaLength={thetaLength} length={colors.length} />
                     )
