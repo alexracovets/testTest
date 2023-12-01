@@ -15,9 +15,12 @@ const stateAnnotationsPopUp = createSlice({
         changeActiveStatus: (state, action) => {
             state.isActive = action.payload;
         },
+        setPopUpContent: (state, action) => {
+
+        }
     }
 });
 
-export const { changeActiveStatus } = stateAnnotationsPopUp.actions;
+export const { changeActiveStatus, setPopUpContent } = stateAnnotationsPopUp.actions;
 
 export default stateAnnotationsPopUp.reducer;

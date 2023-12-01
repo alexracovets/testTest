@@ -54,13 +54,9 @@ const stateAnnotations = createSlice({
             const { color, annotation } = action.payload;
             annotation.forEach(element => {
                 const anno = state.annotation.find(item => item.id === element);
-                if (anno) {
-                    if (anno.color.includes(color)) {
-                        anno.color = anno.color.filter(exist => exist !== color)
-                    } else {
-                        anno.color.push(color)
-                    }
-                }
+                anno?.color.includes(color)
+                    ? anno.color = anno.color.filter(exist => exist !== color)
+                    : anno.color.push(color)
             });
         },
     }
