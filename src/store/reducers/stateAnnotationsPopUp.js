@@ -16,7 +16,7 @@ const stateAnnotationsPopUp = createSlice({
             state.isActive = action.payload;
         },
         setPopUpContent: (state, action) => {
-
+            
         }
     }
 });
