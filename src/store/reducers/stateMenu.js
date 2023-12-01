@@ -9,7 +9,7 @@ const stateMenu = createSlice({
                 name: 'paper',
                 color: '#5E8BFF',
                 active: true,
-                annotation: [2, 6, 8, 9],
+                annotation: [2, 6, 8],
                 id: 1
             },
             {
@@ -51,7 +51,7 @@ const stateMenu = createSlice({
                 name: 'eco',
                 color: '#B1B1B1',
                 active: true,
-                annotation: [3, 5, 7,8],
+                annotation: [3, 5, 7, 8],
                 id: 7
             }
 
