@@ -30,7 +30,7 @@ export default function Svg(color) {
             {shapes.map((item, index) =>
                 <mesh key={index}>
                     <shapeGeometry args={[item.shape]} />
-                    <meshBasicMaterial color={item.color} side={THREE.DoubleSide} />
+                    <meshBasicMaterial color={item.color} side={THREE.BackSide} transparent={false} depthWrite={false} />
                 </mesh>
             )}
         </group>

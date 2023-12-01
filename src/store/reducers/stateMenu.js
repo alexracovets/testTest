@@ -61,7 +61,7 @@ const stateMenu = createSlice({
             {
                 name: 'report',
                 color: '#4B51FF',
-                active: false,
+                active: true,
                 link: 'https://lookerstudio.google.com/embed/reporting/ac15aa9f-0a5d-4c64-bd57-01ba0314d92e/page/FXHYD',
                 id: 8
             }
