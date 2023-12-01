@@ -19,13 +19,13 @@ const stateAnnotations = createSlice({
             8: [2, 4, 5, 7],
             9: [1],
         },
-        
+
         // Вивід анотацій
         annotation: [
             {
-                position: [50, 0, 9],
+                position: [-20, 0, 9],
                 cameraPosition: [-9.43, 8.94, 16.67],
-                color: ["#8f680e"],
+                color: ["#5E8BFF"],
                 content: 'annotation.first',
                 src: './img/pop_annotation/1.jpg',
                 music: '1',
@@ -33,22 +33,85 @@ const stateAnnotations = createSlice({
                 id: 1
             },
             {
-                position: [-7.4, 0, 7.5],
-                cameraPosition: [-5.24, 5.72, 15.05],
-                color: ["#0d276b", "#0e3d02", "#8f680e", "#940807", "#2C1902", "#4a4848"],
-                content: 'annotation.second',
-                src: './img/pop_annotation/2.jpg',
-                music: '2',
+                position: [-10, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#49AD0B"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
                 panorama: true,
                 id: 2
             },
+            {
+                position: [0, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#EEBE40"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
+                panorama: true,
+                id: 3
+            },
+            {
+                position: [10, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#D73B3B"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
+                panorama: true,
+                id: 4
+            },
+            {
+                position: [20, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#9F5804"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
+                panorama: true,
+                id: 5
+            },
+            {
+                position: [30, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#E2E2E2"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
+                panorama: true,
+                id: 6
+            },
+            {
+                position: [40, 0, 9],
+                cameraPosition: [-9.43, 8.94, 16.67],
+                color: ["#B1B1B1"],
+                content: 'annotation.first',
+                src: './img/pop_annotation/1.jpg',
+                music: '1',
+                panorama: true,
+                id: 7
+            }
         ]
     },
     reducers: {
+        changeActiveColors: (state, action) => {
+            const { color, annotation } = action.payload;
+            annotation.forEach(element => {
+                const anno = state.annotation.find(item => item.id === element);
+                if (anno) {
+                    if (anno.color.includes(color)) {
+                        anno.color = anno.color.filter(exist => exist !== color)
+                    } else {
+                        anno.color.push(color)
+                    }
+                }
 
+            });
+        },
     }
 });
 
-// export const { } = stateAnnotations.actions;
+export const { changeActiveColors } = stateAnnotations.actions;
 
 export default stateAnnotations.reducer;

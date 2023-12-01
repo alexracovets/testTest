@@ -8,7 +8,7 @@ Annotation.propTypes = {
 };
 
 export default function Annotation({ item }) {
-
+    
     return (
         <group position={item.position}>
             <TopSide colors={item.color} />

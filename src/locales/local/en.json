@@ -7,8 +7,8 @@
         "plastic": "Plastic",
         "metal": "Metal",
         "bio": "Bio",
-        "ecoZone": "Eco Zone",
-        "otherWaste": "Other Waste",
-        "ecoReport": "Eco Report"
+        "eco": "Eco Zone",
+        "other": "Other Waste",
+        "report": "Eco Report"
     }
 }

@@ -6,81 +6,67 @@ const stateMenu = createSlice({
         // Вивід кнопок(натурали)
         btns: [
             {
-                text: 'menu.paper',
-                image: './img/menu/paper.svg',
+                name: 'paper',
                 active: true,
-                className: 'paper',
-                color: '#0d276b',
+                color: '#5E8BFF',
                 annotation: [2, 6, 8, 9],
                 annotationImage: './img/annotations/paper.svg',
                 id: 1
             },
             {
-                text: 'menu.glass',
-                image: './img/menu/glass.svg',
+                name: 'glass',
                 active: true,
-                className: 'glass',
-                color: '#0e3d02',
+                color: '#49AD0B',
                 annotation: [2, 6, 8],
                 annotationImage: './img/annotations/glass.svg',
                 id: 2
             },
             {
-                text: 'menu.plastic',
-                image: './img/menu/plastic.svg',
+                name: 'plastic',
                 active: true,
-                className: 'plastic',
-                color: '#8f680e',
+                color: '#EEBE40',
                 annotation: [1, 2, 6, 8],
                 annotationImage: './img/annotations/paper.svg',
                 id: 3
             },
             {
-                text: 'menu.metal',
-                image: './img/menu/metal.svg',
+                name: 'metal',
                 active: true,
-                className: 'metal',
-                color: '#940807',
+                color: '#D73B3B',
                 annotation: [2, 6, 8],
                 annotationImage: './img/annotations/metal.svg',
                 id: 4
             },
             {
-                text: 'menu.bio',
-                image: './img/menu/bio-waste.svg',
+                name: 'bio',
                 active: true,
-                className: 'bio',
-                color: '#2C1902',
+                color: '#9F5804',
                 annotation: [2, 6, 8],
                 id: 5
             },
             {
-                text: 'menu.otherWaste',
-                image: './img/menu/eco-report.svg',
+                name: 'other',
                 active: true,
-                className: 'other',
-                color: '#4a4848',
+                color: '#E2E2E2',
                 annotation: [2, 4, 6, 8],
                 annotationImage: './img/annotations/eco-report.svg',
-                id: 7
+                id: 6
             },
             {
-                text: 'menu.ecoZone',
-                image: './img/menu/eco-zone.svg',
+                name: 'eco',
                 active: true,
-                className: 'eco',
-                color: '#b8b8b8',
+                color: '#B1B1B1',
                 annotation: [3, 5, 7],
                 annotationImage: './img/annotations/eco-zone.svg',
-                id: 6
+                id: 7
             }
+
         ],
         // Вивід кнопок(лінки)
         links: [
             {
-                text: 'menu.ecoReport',
-                image: './img/menu/eco-report.svg',
-                className: 'report',
+                name: 'report',
+                color: '#4B51FF',
                 active: false,
                 link: 'https://lookerstudio.google.com/embed/reporting/ac15aa9f-0a5d-4c64-bd57-01ba0314d92e/page/FXHYD',
                 id: 8

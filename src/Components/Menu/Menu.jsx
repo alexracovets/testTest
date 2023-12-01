@@ -10,13 +10,8 @@ export default function Menu() {
     const stateMenu = useSelector((state) => state.stateMenu);
     const { t } = useTranslation();
 
-    const renderBtn = () => stateMenu.btns.map((button) =>
-        <MenuBtn item={button} key={button.id} />
-    );
-
-    const renderLink = () => stateMenu.links.map((button) =>
-        <MenuBtn item={button} key={button.id} />
-    );
+    const renderBtn = () => stateMenu.btns.map((button) => <MenuBtn item={button} key={button.id} />);
+    const renderLink = () => stateMenu.links.map((button) => <MenuBtn item={button} key={button.id} />);
 
     return (
         <aside className={s.menu__wrapper}>

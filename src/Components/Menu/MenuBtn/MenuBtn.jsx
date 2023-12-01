@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
 import { changeActiveStatus } from '../../../store/reducers/stateMenu.js';
+import { changeActiveColors } from '../../../store/reducers/stateAnnotations.js';
 
 import s from '../Menu.module.scss';
 
@@ -15,13 +16,20 @@ export default function MenuBtn({ item }) {
     const dispatch = useDispatch();
 
     const btnHandler = () => {
-        dispatch(changeActiveStatus(item.id))
+        dispatch(changeActiveStatus(item.id));
+        dispatch(changeActiveColors(item))
     }
 
     return (
         <button className={item.active ? s.btn : s.btn + ' ' + s.disabled} onClick={btnHandler}>
-            <span className={s.text}> {t(item.text)} </span>
-            <span className={s.image + ' ' + s[item.className]} style={{ backgroundImage: `url(${item.image})` }}></span>
+            <span className={s.text}> {t(`menu.${item.name}`)} </span>
+            <span
+                className={s.image}
+                style={{
+                    backgroundImage: `url(./img/menu/${item.name}.svg)`,
+                    backgroundColor: `${item.color}`
+                }}>
+            </span>
         </button>
     )
 }

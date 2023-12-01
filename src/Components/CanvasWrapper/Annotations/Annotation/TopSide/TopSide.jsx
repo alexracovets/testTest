@@ -5,6 +5,7 @@ import { useRef } from 'react';
 
 import Parts from './Parts/Parts';
 import Ring from './Ring/Ring';
+import Svg from './Svg/Svg';
 
 TopSide.propTypes = {
     colors: PropTypes.array,
@@ -23,6 +24,7 @@ export default function TopSide({ colors }) {
             <group rotation={[Math.PI / 2, 0, 0]}>
                 <Parts colors={colors} />
                 <Ring />
+                {colors.length === 1 && <Svg color={colors[0]} />}
             </group>
         </group>
     );

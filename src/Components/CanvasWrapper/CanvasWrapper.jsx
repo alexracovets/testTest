@@ -17,8 +17,7 @@ export default function CanvasWrapper({ setLoad }) {
             gl={{ preserveDrawingBuffer: true }}
             camera={{ position: [5, 100, 5], fov: 75, near: 0.1, far: 1000 }}
         >
-            <ambientLight intensity={1} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <ambientLight intensity={2} /> 
             <Controls />
             <Annotations />
             <Building setLoad={setLoad} />
