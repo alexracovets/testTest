@@ -9,49 +9,49 @@ const stateMenu = createSlice({
                 name: 'paper',
                 color: '#5E8BFF',
                 active: true,
-                annotation: [1, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 1
             },
             {
                 name: 'glass',
                 color: '#49AD0B',
                 active: true,
-                annotation: [2, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 2
             },
             {
                 name: 'plastic',
                 color: '#EEBE40',
                 active: true,
-                annotation: [3, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 3
             },
             {
                 name: 'metal',
                 color: '#D73B3B',
                 active: true,
-                annotation: [4, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 4
             },
             {
                 name: 'bio',
                 color: '#9F5804',
                 active: true,
-                annotation: [5, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 5
             },
             {
                 name: 'other',
                 color: '#E2E2E2',
                 active: true,
-                annotation: [6, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 6
             },
             {
                 name: 'eco',
                 color: '#B1B1B1',
                 active: true,
-                annotation: [3, 5, 7, 8],
+                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 7
             }
 
