@@ -15,8 +15,7 @@ export default function Annotation({ item }) {
 
     const openPopUp = (event) => {
         event.stopPropagation();
-        annotationPopUp(dispatch, true);
-        console.log(item.id)
+        annotationPopUp(dispatch, true, item.id); 
     }
 
     return (

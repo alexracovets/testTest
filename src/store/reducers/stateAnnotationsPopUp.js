@@ -3,12 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const stateAnnotationsPopUp = createSlice({
     name: 'stateAnnotationsPopUp',
     initialState: {
-        content: {
-            title: '',
-            tag: '',
-            location: '',
-            image: ''
-        },
+        content: "1",
         isActive: false,
     },
     reducers: {
@@ -16,7 +11,7 @@ const stateAnnotationsPopUp = createSlice({
             state.isActive = action.payload;
         },
         setPopUpContent: (state, action) => {
-            
+            state.content = action.payload;
         }
     }
 });

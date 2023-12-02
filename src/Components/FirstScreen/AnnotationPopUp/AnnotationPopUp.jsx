@@ -1,11 +1,13 @@
 import { RxCross2 } from "react-icons/rx";
 import { SlArrowRight } from "react-icons/sl";
+import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
 import annotationPopUp from '../../../static/annotationPopUp';
 
 import s from './AnnotationPopUp.module.scss';
 
 export default function AnnotationPopUp() {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const state = useSelector((state) => state.stateAnnotationsPopUp);
 
@@ -17,10 +19,10 @@ export default function AnnotationPopUp() {
                 <button className={s.cross} type="button" onClick={() => closePopUp()}>
                     <RxCross2 />
                 </button>
-                <h3>{state.content.title}</h3>
-                <p> {state.content.tag} </p>
-                <p className={s.location}> {state.content.location} </p>
-                <img className={s.image} src={`/img/annotation/${4}.jpg`} />
+                <h3> {t(`annotation.${state.content}.title`)} </h3>
+                <p> {t(`annotation.${state.content}.tag`)} </p>
+                <p className={s.location}> {t(`annotation.${state.content}.location`)} </p>
+                <img className={s.image} src={`/img/annotation/${state.content}.jpg`} />
                 <button type='button'>
                     <span>Відкрити</span>
                     <SlArrowRight />

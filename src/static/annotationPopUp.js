@@ -1,7 +1,8 @@
-import { changeActiveStatus } from '../store/reducers/stateAnnotationsPopUp';
+import { changeActiveStatus, setPopUpContent } from '../store/reducers/stateAnnotationsPopUp';
 
-const annotationPopUp = (dispatch, status) => {
+const annotationPopUp = (dispatch, status, content) => {
     dispatch(changeActiveStatus(status));
+    status && dispatch(setPopUpContent(content));
 }
 
 export default annotationPopUp;
