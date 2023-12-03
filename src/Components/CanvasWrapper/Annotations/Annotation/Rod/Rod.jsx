@@ -7,10 +7,10 @@ import * as THREE from 'three';
 import matcapGray from '/material/gray.png';
 
 Rod.propTypes = {
-    sections: PropTypes.array,
+    animStatus: PropTypes.string
 };
 
-export default function Rod() {
+export default function Rod({ animStatus }) {
     const [grayTexture] = useLoader(THREE.TextureLoader, [matcapGray]);
     const meshRef = useRef();
     const height = 13.4;

@@ -1,20 +1,27 @@
 import { useLoader } from '@react-three/fiber';
-import { Torus } from '@react-three/drei';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
 import matcapWhite from '/material/white.png';
+import SphereElement from './SphereElement/SphereElement';
+import TorusElement from './TorusElement/TorusElement';
 
 Ring.propTypes = {
-    sections: PropTypes.arrayOf(PropTypes.any),
+    radius: PropTypes.number,
 };
 
-export default function Ring() {
-    const [whiteTexture] = useLoader(THREE.TextureLoader, [matcapWhite])
+export default function Ring({ radius }) {
+    const whiteTexture = useLoader(THREE.TextureLoader, matcapWhite);
+    const figureParametrs = {
+        width: 0.4,
+        radius: 5
+    }
 
     return (
-        <Torus args={[5, 0.4, 20, 80]} rotation={[Math.PI / 2, 0, 0]}>
-            <meshMatcapMaterial matcap={whiteTexture} />
-        </Torus>
+        <>
+            <TorusElement radius={radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
+            <SphereElement radius={radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
+            <SphereElement radius={-radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
+        </>
     );
 }

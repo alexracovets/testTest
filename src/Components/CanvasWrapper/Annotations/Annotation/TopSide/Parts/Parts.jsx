@@ -5,11 +5,12 @@ import Part from './Part/Part';
 
 Parts.propTypes = {
     colors: PropTypes.array,
+    radius: PropTypes.number
 };
 
-export default function Parts({ colors }) {
-
+export default function Parts({ colors, radius }) {
     const [thetaLength, setThetaLength] = useState(null);
+    
 
     useEffect(() => {
         const newTheta = (2 * Math.PI) / colors.length;
@@ -19,9 +20,9 @@ export default function Parts({ colors }) {
     return (
         <>
             {
-                colors.length > 0 && colors.map((color, index) => {
+                colors.map((color, index) => {
                     return (
-                        <Part key={index} index={index} color={color} thetaLength={thetaLength} length={colors.length} />
+                        <Part key={index} index={index} color={color} thetaLength={thetaLength} length={colors.length} radius={radius} />
                     )
                 })
             }

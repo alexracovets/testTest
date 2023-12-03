@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
 
-import Rod from './Annotation/Rod/Rod';
-
 import Annotation from "./Annotation/Annotation";
 
 export default function Annotations() {
