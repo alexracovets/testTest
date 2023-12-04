@@ -2,6 +2,7 @@ import { RxCross2 } from "react-icons/rx";
 import { SlArrowRight } from "react-icons/sl";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
+
 import annotationPopUp from '../../../static/annotationPopUp';
 
 import s from './AnnotationPopUp.module.scss';
@@ -11,7 +12,9 @@ export default function AnnotationPopUp() {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.stateAnnotationsPopUp);
 
-    const closePopUp = () => annotationPopUp(dispatch, false);
+    const closePopUp = () => {
+        annotationPopUp(dispatch, false);
+    };
 
     return (
         <aside className={state.isActive ? s.popUp + ' ' + s.active : s.popUp}>

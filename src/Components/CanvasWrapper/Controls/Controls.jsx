@@ -5,17 +5,15 @@ import { damp3 } from 'maath/easing';
 import { useRef } from 'react';
 
 export default function Controls() {
-    const cameraParametr = useSelector((state) => state.stateCamera);
     const controls = useRef();
-    const {
-        camera,
-        gl: { domElement },
-    } = useThree();
+    const { camera, gl: { domElement } } = useThree();
+    const cameraParametr = useSelector((state) => state.stateCamera);
 
     useFrame((state, delta) => {
-        damp3(controls.current.target, cameraParametr.target, 0.5, delta);
-        // console.log(camera.position)
-        // camera.position.x += 0.1
+        if (cameraParametr.isAnimation) {
+            damp3(controls.current.target, cameraParametr.target, 0.5, delta);
+            damp3(camera.position, cameraParametr.position, 0.5, delta);
+        }
     })
 
     return (
