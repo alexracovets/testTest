@@ -52,7 +52,7 @@ export default function Controls() {
             ref={controls}
             args={[camera, domElement]}
             minPolarAngle={-Math.PI / 2}
-            maxPolarAngle={Math.PI / 2}
+            maxPolarAngle={Math.PI / 2.1}
             zoomSpeed={2}
             panSpeed={0.8}
             rotateSpeed={0.3}
