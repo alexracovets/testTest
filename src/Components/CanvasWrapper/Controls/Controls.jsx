@@ -1,20 +1,40 @@
-import { useFrame, useThree } from '@react-three/fiber';
+import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
-import { useSelector } from 'react-redux';
-import { damp3 } from 'maath/easing';
-import { useRef } from 'react';
+import { useThree } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
+import { setActiveAnimation } from '../../../store/reducers/stateCamera';
 
 export default function Controls() {
     const controls = useRef();
+    const dispatch = useDispatch();
     const { camera, gl: { domElement } } = useThree();
-    const cameraParametr = useSelector((state) => state.stateCamera);
+    const cameraParameter = useSelector((state) => state.stateCamera);
 
-    useFrame((state, delta) => {
-        if (cameraParametr.isAnimation) {
-            damp3(controls.current.target, cameraParametr.target, 0.5, delta);
-            damp3(camera.position, cameraParametr.position, 0.5, delta);
+    useEffect(() => {
+        if (cameraParameter.isAnimation) {
+            gsap.to(controls.current.target, {
+                duration: 2,
+                x: cameraParameter.target[0],
+                y: cameraParameter.target[1],
+                z: cameraParameter.target[2],
+                ease: "expoScale(0.5,7,none)"
+            });
+
+            gsap.to(camera.position, {
+                duration: 2,
+                x: cameraParameter.position[0],
+                y: cameraParameter.position[1],
+                z: cameraParameter.position[2],
+                ease: "expoScale(0.5,7,none)",
+                onComplete: () => {
+                    dispatch(setActiveAnimation(false))
+                }
+            });
         }
-    })
+
+    }, [cameraParameter.position, cameraParameter.target, cameraParameter.isAnimation, camera.position, dispatch])
 
     return (
         <OrbitControls
@@ -28,6 +48,9 @@ export default function Controls() {
             autoRotate={false}
             autoRotateSpeed={0.5}
             enableZoom={true}
+            enablePan={false}
+            maxDistance={200}
+            minDistance={100}
         />
     )
 }

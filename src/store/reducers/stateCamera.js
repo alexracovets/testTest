@@ -9,11 +9,13 @@ const stateCamera = createSlice({
         },
         position: [-102, 66, 114],
         target: [0, 0, 0],
-        isAnimation: true,
+        isAnimation: false,
     },
     reducers: {
         setTarget: (state, action) => {
-            state.target = action.payload;
+            const { target, position } = action.payload;
+            state.target = target;
+            state.position = position;
             state.isAnimation = true;
         },
         setActiveAnimation: (state, action) => {
@@ -21,7 +23,8 @@ const stateCamera = createSlice({
         },
         setDefault: (state) => {
             state.position = state.default.position;
-            state.target = state.default.target; 
+            state.target = state.default.target;
+            state.isAnimation = true;
         }
     }
 });

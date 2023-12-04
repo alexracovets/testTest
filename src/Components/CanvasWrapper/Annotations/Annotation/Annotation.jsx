@@ -14,6 +14,7 @@ Annotation.propTypes = {
 
 export default function Annotation({ item }) {
     const dispatch = useDispatch();
+    const [height, setHeight] = useState(null);
     const [isAnimation, setAnimation] = useState(false);
     const [renderColors, setRenderColors] = useState([]);
     const [targetYPosition, setTargetYPosition] = useState(0);
@@ -49,17 +50,12 @@ export default function Annotation({ item }) {
         tl.to(renderParameters, {
             duration: .6,
             thetaRing: thetaRing,
-            ease: "sine.inOut",
+            ease: 'bounce',
         })
         tl.to(renderParameters, {
             duration: .3,
             heightRod: heightRod,
-            ease: "sine.inOut",
-        })
-        tl.to(renderParameters, {
-            duration: .3,
-            heightRod: heightRod,
-            ease: "myBounce-squash",
+            ease: 'bounce',
         })
     }
 
@@ -91,9 +87,11 @@ export default function Annotation({ item }) {
             ease: "sine.inOut",
         })
     }
+
     useEffect(() => {
         setTargetYPosition(renderParameters.heightRod + renderParameters.radiusCircle + 2)
     }, [renderParameters.heightRod, renderParameters.radiusCircle])
+
     useEffect(() => {
         if (item.color.length === 0) {
             setAnimation(true)
@@ -105,20 +103,20 @@ export default function Annotation({ item }) {
     }, [item.color])
 
     useEffect(() => {
-        isAnimation ? animationHide(0, 0, 0, 2) : animationShow(Math.PI * 2, 5, 1, 13.4)
-    }, [isAnimation])
-
-    const [height, setHeight] = useState(null);
-
-    useEffect(() => {
         setHeight(renderParameters.heightRod)
     }, [item.position, renderParameters.heightRod])
 
+    useEffect(() => {
+        isAnimation ? animationHide(0, 0, 0, 2) : animationShow(Math.PI * 2, 5, 1, 13.4)
+    }, [isAnimation])
+
+
     return (
-        <group position={item.position}
-            onPointerLeave={() => cursor(false)}
-            onPointerMove={() => cursor(true)}
-            onPointerUp={(event) => openPopUp(event)}
+        <group
+            position={item.position}
+            onPointerLeave={(event) => cursor(event, false)}
+            onPointerMove={(event) => cursor(event, true)}
+            onClick={(event) => openPopUp(event)}
         >
             <TopSide
                 colors={renderColors}

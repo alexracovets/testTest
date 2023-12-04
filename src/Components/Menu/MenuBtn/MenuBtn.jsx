@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
-import { changeActiveStatus } from '../../../store/reducers/stateMenu.js';
-import { changeActiveColors } from '../../../store/reducers/stateAnnotations.js';
+import { changeActiveStatus } from '../../../store/reducers/stateMenu';
+import { changeActiveColors } from '../../../store/reducers/stateAnnotations';
 
 import s from '../Menu.module.scss';
 
