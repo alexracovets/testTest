@@ -13,7 +13,7 @@ Ring.propTypes = {
 export default function Ring({ theta }) {
     const whiteTexture = useLoader(THREE.TextureLoader, matcapWhite);
     const figureParametrs = {
-        width: 0.4,
+        width: 0.2,
         radius: 5
     }
 

@@ -23,7 +23,7 @@ export default function Part({ index, color, thetaLength, length, radius }) {
             </Ring>
             {length > 1 &&
                 <group rotation={[-Math.PI / 2, 0, thetaLength * index]}>
-                    <Cylinder args={[0.2, 0.2, 5, 20, 20, false,]} position={[0, -2.5, 0]} rotation={[0, 0, 0]}>
+                    <Cylinder args={[0.1, 0.1, 5, 20, 20, false,]} position={[0, -2.5, 0]} rotation={[0, 0, 0]}>
                         <meshMatcapMaterial matcap={whiteTexture} />
                     </Cylinder>
                 </group>
