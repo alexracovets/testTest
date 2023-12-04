@@ -23,8 +23,9 @@ export default function TopSide({ colors, thetaRing, radiusCircle, svgOpacity, h
     useFrame((state, delta) => {
         dampLookAt(groupRef.current, camera.position, 0.25, delta);
     });
+
     return (
-        <group ref={groupRef} position={[0, heightRod + 6.8, 50]}>
+        <group ref={groupRef} position={[0, heightRod + 6.8, 0]}>
             <group rotation={[Math.PI / 2, 0, 0]}>
                 <Parts colors={colors} radius={radiusCircle} />
                 <Ring theta={thetaRing} />

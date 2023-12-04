@@ -6,55 +6,55 @@ const stateAnnotations = createSlice({
         // Вивід анотацій
         annotation: [
             {
-                position: [-100, 1, 8],
-                cameraPosition: [-9.43, 8.94, 16.67],
+                position: [-100, 0, 58],
+                cameraPosition: [-91.9, 30.8, 88.8],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 1
             },
             {
-                position: [100, 9, -40],
+                position: [100, 13.3, 12],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 2
             },
             {
-                position: [-52, 0, -4],
+                position: [-52, -0.2, 46],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF"],
                 id: 3
             },
             {
-                position: [-85, 5, -7],
+                position: [-85, 9.7, 43],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 4
             },
             {
-                position: [-70, 5, -7],
+                position: [-70, 10.2, 43],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 5
             },
             {
-                position: [93, 9, -20],
+                position: [93, 13.3, 30],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 6
             },
             {
-                position: [-70, 1, 11],
+                position: [-70, 0.7, 61],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 7
             },
             {
-                position: [-95, 8, -46],
+                position: [-95, 7.6, 4],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 8
             },
             {
-                position: [105, -2, 14],
+                position: [105, -2.5, 64],
                 cameraPosition: [-9.43, 8.94, 16.67],
                 color: ["#5E8BFF", "#49AD0B", "#EEBE40", "#D73B3B", "#9F5804", "#E2E2E2", "#B1B1B1"],
                 id: 9

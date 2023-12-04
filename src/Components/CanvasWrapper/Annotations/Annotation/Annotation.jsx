@@ -16,6 +16,7 @@ export default function Annotation({ item }) {
     const dispatch = useDispatch();
     const [isAnimation, setAnimation] = useState(false);
     const [renderColors, setRenderColors] = useState([]);
+    const [targetYPosition, setTargetYPosition] = useState(0);
     const [renderParameters, setRenderParameters] = useState({
         thetaRing: Math.PI * 2,
         radiusCircle: 5,
@@ -25,7 +26,7 @@ export default function Annotation({ item }) {
 
     const openPopUp = (event) => {
         event.stopPropagation();
-        annotationPopUp(dispatch, true, item.id);
+        annotationPopUp(dispatch, true, item, targetYPosition);
     }
 
     const animationHide = (thetaRing, radiusCircle, svgOpacity, heightRod) => {
@@ -54,6 +55,11 @@ export default function Annotation({ item }) {
             duration: .3,
             heightRod: heightRod,
             ease: "sine.inOut",
+        })
+        tl.to(renderParameters, {
+            duration: .3,
+            heightRod: heightRod,
+            ease: "myBounce-squash",
         })
     }
 
@@ -85,7 +91,9 @@ export default function Annotation({ item }) {
             ease: "sine.inOut",
         })
     }
-
+    useEffect(() => {
+        setTargetYPosition(renderParameters.heightRod + renderParameters.radiusCircle + 2)
+    }, [renderParameters.heightRod, renderParameters.radiusCircle])
     useEffect(() => {
         if (item.color.length === 0) {
             setAnimation(true)
@@ -100,6 +108,12 @@ export default function Annotation({ item }) {
         isAnimation ? animationHide(0, 0, 0, 2) : animationShow(Math.PI * 2, 5, 1, 13.4)
     }, [isAnimation])
 
+    const [height, setHeight] = useState(null);
+
+    useEffect(() => {
+        setHeight(renderParameters.heightRod)
+    }, [item.position, renderParameters.heightRod])
+
     return (
         <group position={item.position}
             onPointerLeave={() => cursor(false)}
@@ -111,9 +125,9 @@ export default function Annotation({ item }) {
                 radiusCircle={renderParameters.radiusCircle}
                 thetaRing={renderParameters.thetaRing}
                 svgOpacity={renderParameters.svgOpacity}
-                heightRod={renderParameters.heightRod}
+                heightRod={height}
             />
-            <Rod heightRod={renderParameters.heightRod} />
+            <Rod height={height} />
         </group>
     );
 }
