@@ -16,19 +16,19 @@ export default function Controls() {
     useEffect(() => {
         if (cameraParameter.isAnimation) {
             gsap.to(controls.current.target, {
-                duration: 1,
+                duration: 1.2,
                 x: cameraParameter.target[0],
                 y: cameraParameter.target[1],
                 z: cameraParameter.target[2],
                 ease: "expoScale(0.5,7,none)",
             });
             gsap.to(controls.current, {
-                duration: 1,
+                duration: 1.2,
                 minDistance: isAnnotation ? 0 : 120,
                 ease: "expoScale(0.5,7,none)",
             });
             gsap.to(camera.position, {
-                duration: 1,
+                duration: 1.2,
                 x: cameraParameter.position[0],
                 y: cameraParameter.position[1],
                 z: cameraParameter.position[2],
