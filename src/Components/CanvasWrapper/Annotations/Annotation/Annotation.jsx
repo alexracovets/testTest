@@ -109,13 +109,16 @@ export default function Annotation({ item }) {
     useEffect(() => {
         isAnimation ? animationHide(0, 0, 0, 2) : animationShow(Math.PI * 2, 5, 1, 13.4)
     }, [isAnimation])
+    const [isHover, setIsHover] = useState(false);
 
-
+    useEffect(() => {
+        cursor(isHover)
+    }, [isHover])
     return (
         <group
             position={item.position}
-            onPointerLeave={(event) => cursor(event, false)}
-            onPointerMove={(event) => cursor(event, true)}
+            onPointerLeave={() => setIsHover(false)}
+            onPointerMove={() => setIsHover(true)}
             onClick={(event) => openPopUp(event)}
         >
             <TopSide
@@ -124,6 +127,8 @@ export default function Annotation({ item }) {
                 thetaRing={renderParameters.thetaRing}
                 svgOpacity={renderParameters.svgOpacity}
                 heightRod={height}
+                id={item.id}
+                isHover={isHover}
             />
             <Rod height={height} />
         </group>

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
 import { useThree } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 import { setActiveAnimation } from '../../../store/reducers/stateCamera';
