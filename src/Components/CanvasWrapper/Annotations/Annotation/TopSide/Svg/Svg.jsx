@@ -1,26 +1,29 @@
 import * as THREE from 'three';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
-import loadSvg from '../../../../../../static/loadSvg';
+import { useEffect, useState } from 'react';
 
-export default function Svg(color) {
+import loadSvg from '../../../../../../static/loadSvg';
+import findElement from '../../../../../../static/findElement';
+
+Svg.propTypes = {
+    colors: PropTypes.array,
+    opacity: PropTypes.number
+};
+
+export default function Svg({ colors, opacity }) {
     const stateMenu = useSelector((state) => state.stateMenu);
     const [image, setImage] = useState(null);
     const [shapes, setShapes] = useState([]);
-
-    const findImage = useCallback(() => {
-        const item = stateMenu.btns.find(btn => btn.color === color.color);
-        setImage(item ? item.name : null);
-    }, [stateMenu.btns, color.color]);
 
     useEffect(() => {
         image && loadSvg(image, setShapes);
     }, [image]);
 
     useEffect(() => {
-        findImage();
-    }, [findImage]);
-
+        const element = findElement(stateMenu.btns, 'color', colors[0]);
+        element && setImage(element.name);
+    }, [stateMenu.btns, colors]);
     return (
         <group
             position={[-4, 0.2, -4]}
@@ -30,7 +33,7 @@ export default function Svg(color) {
             {shapes.map((item, index) =>
                 <mesh key={index}>
                     <shapeGeometry args={[item.shape]} />
-                    <meshBasicMaterial color={item.color} side={THREE.BackSide} transparent={false} depthWrite={false} />
+                    <meshBasicMaterial color={item.color} side={THREE.BackSide} transparent={true} opacity={colors.length <= 1 ? opacity : 0} />
                 </mesh>
             )}
         </group>

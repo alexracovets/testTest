@@ -10,7 +10,6 @@ Parts.propTypes = {
 
 export default function Parts({ colors, radius }) {
     const [thetaLength, setThetaLength] = useState(null);
-    
 
     useEffect(() => {
         const newTheta = (2 * Math.PI) / colors.length;

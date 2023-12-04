@@ -6,13 +6,13 @@ SphereElement.propTypes = {
     whiteTexture: PropTypes.object,
     radius: PropTypes.number,
     width: PropTypes.number,
-    radiusCircle: PropTypes.number
+    theta: PropTypes.number
 };
 
-export default function SphereElement({ whiteTexture, radius, width, radiusCircle }) {
+export default function SphereElement({ whiteTexture, theta, width, radius }) {
     return (
-        <group rotation={[Math.PI / 2, 0, (Math.PI - radius) / 2]}>
-            <Sphere args={[width, 10, 10]} position={[radiusCircle, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, (Math.PI - theta) / 2]}>
+            <Sphere args={[width, 10, 10]} position={[radius, 0, 0]}>
                 <meshMatcapMaterial matcap={whiteTexture} side={THREE.FrontSide} />
             </Sphere>
         </group>

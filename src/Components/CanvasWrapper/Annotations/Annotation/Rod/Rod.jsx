@@ -7,17 +7,16 @@ import * as THREE from 'three';
 import matcapGray from '/material/gray.png';
 
 Rod.propTypes = {
-    animStatus: PropTypes.string
+    heightRod: PropTypes.number
 };
 
-export default function Rod({ animStatus }) {
+export default function Rod({ heightRod }) {
     const [grayTexture] = useLoader(THREE.TextureLoader, [matcapGray]);
-    const meshRef = useRef();
-    const height = 13.4;
+    const meshRef = useRef(); 
     const radius = 0.3;
 
     return (
-        <Capsule ref={meshRef} args={[radius, height, 10, 10]} position={[0, 1 + height / 2, 50]} rotation={[0, 0, 0]} computeBoundingBox>
+        <Capsule ref={meshRef} args={[radius, heightRod, 10, 10]} position={[0, 1 + heightRod / 2, 50]} rotation={[0, 0, 0]} computeBoundingBox>
             <meshMatcapMaterial matcap={grayTexture} />
         </Capsule>
     );

@@ -7,10 +7,10 @@ import SphereElement from './SphereElement/SphereElement';
 import TorusElement from './TorusElement/TorusElement';
 
 Ring.propTypes = {
-    radius: PropTypes.number,
+    theta: PropTypes.number,
 };
 
-export default function Ring({ radius }) {
+export default function Ring({ theta }) {
     const whiteTexture = useLoader(THREE.TextureLoader, matcapWhite);
     const figureParametrs = {
         width: 0.4,
@@ -19,9 +19,9 @@ export default function Ring({ radius }) {
 
     return (
         <>
-            <TorusElement radius={radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
-            <SphereElement radius={radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
-            <SphereElement radius={-radius} whiteTexture={whiteTexture} width={figureParametrs.width} radiusCircle={figureParametrs.radius} />
+            <TorusElement theta={theta} whiteTexture={whiteTexture} width={figureParametrs.width} radius={figureParametrs.radius} />
+            <SphereElement theta={theta} whiteTexture={whiteTexture} width={figureParametrs.width} radius={figureParametrs.radius} />
+            <SphereElement theta={-theta} whiteTexture={whiteTexture} width={figureParametrs.width} radius={figureParametrs.radius} />
         </>
     );
 }
