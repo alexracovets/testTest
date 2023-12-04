@@ -1,5 +1,5 @@
-const cursor = (event, isHover) => {
-    event.stopPropagation()
+const cursor = ( isHover) => {
+    // event.stopPropagation()
     document.body.style.cursor = isHover ? 'pointer' : 'auto';
 }
 

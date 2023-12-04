@@ -114,8 +114,8 @@ export default function Annotation({ item }) {
     return (
         <group
             position={item.position}
-            onPointerLeave={(event) => { setIsHover(false); cursor(event, false) }}
-            onPointerMove={(event) => { setIsHover(true); cursor(event, true) }}
+            onPointerLeave={() => { setIsHover(false); cursor(false) }}
+            onPointerMove={() => { setIsHover(true); cursor(true) }}
             onClick={(event) => openPopUp(event)}
         >
             <TopSide

@@ -12,13 +12,13 @@ const stateMenu = createSlice({
                 annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 1
             },
-            {
-                name: 'glass',
-                color: '#49AD0B',
-                active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                id: 2
-            },
+            // {
+            //     name: 'glass',
+            //     color: '#49AD0B',
+            //     active: true,
+            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     id: 2
+            // },
             {
                 name: 'plastic',
                 color: '#EEBE40',
@@ -40,20 +40,20 @@ const stateMenu = createSlice({
                 annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 id: 5
             },
-            {
-                name: 'other',
-                color: '#E2E2E2',
-                active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                id: 6
-            },
-            {
-                name: 'eco',
-                color: '#B1B1B1',
-                active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                id: 7
-            }
+            // {
+            //     name: 'other',
+            //     color: '#E2E2E2',
+            //     active: true,
+            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     id: 6
+            // },
+            // {
+            //     name: 'eco',
+            //     color: '#B1B1B1',
+            //     active: true,
+            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     id: 7
+            // }
 
         ],
         // Вивід кнопок(лінки)
