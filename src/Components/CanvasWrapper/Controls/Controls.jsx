@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
 import { useThree } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 import { setActiveAnimation } from '../../../store/reducers/stateCamera';
@@ -11,30 +11,41 @@ export default function Controls() {
     const dispatch = useDispatch();
     const { camera, gl: { domElement } } = useThree();
     const cameraParameter = useSelector((state) => state.stateCamera);
+    const isAnnotation = useSelector((state) => state.stateAnnotationsPopUp.isActive);
 
     useEffect(() => {
         if (cameraParameter.isAnimation) {
             gsap.to(controls.current.target, {
-                duration: 2,
+                duration: 1,
                 x: cameraParameter.target[0],
                 y: cameraParameter.target[1],
                 z: cameraParameter.target[2],
-                ease: "expoScale(0.5,7,none)"
+                ease: "expoScale(0.5,7,none)",
             });
-
+            gsap.to(controls.current, {
+                duration: 1,
+                minDistance: isAnnotation ? 0 : 120,
+                ease: "expoScale(0.5,7,none)",
+            });
             gsap.to(camera.position, {
-                duration: 2,
+                duration: 1,
                 x: cameraParameter.position[0],
                 y: cameraParameter.position[1],
                 z: cameraParameter.position[2],
                 ease: "expoScale(0.5,7,none)",
+                onUpdate: () => {
+                    controls.current.enabled = false;
+                    controls.current.update();
+                },
                 onComplete: () => {
-                    dispatch(setActiveAnimation(false))
+                    controls.current.enabled = true;
+                    controls.current.update();
+                    dispatch(setActiveAnimation(false));
                 }
             });
         }
 
-    }, [cameraParameter.position, cameraParameter.target, cameraParameter.isAnimation, camera.position, dispatch])
+    }, [cameraParameter.position, cameraParameter.target, cameraParameter.isAnimation, camera.position, isAnnotation, dispatch])
 
     return (
         <OrbitControls
@@ -49,8 +60,9 @@ export default function Controls() {
             autoRotateSpeed={0.5}
             enableZoom={true}
             enablePan={false}
+            target={[10, 0, 0]}
             maxDistance={200}
-            minDistance={100}
+            minDistance={120}
         />
     )
 }
