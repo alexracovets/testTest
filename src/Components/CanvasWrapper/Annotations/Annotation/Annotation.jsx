@@ -15,6 +15,7 @@ Annotation.propTypes = {
 export default function Annotation({ item }) {
     const dispatch = useDispatch();
     const [height, setHeight] = useState(null);
+    const [isHover, setIsHover] = useState(false);
     const [isAnimation, setAnimation] = useState(false);
     const [renderColors, setRenderColors] = useState([]);
     const [targetYPosition, setTargetYPosition] = useState(0);
@@ -109,16 +110,12 @@ export default function Annotation({ item }) {
     useEffect(() => {
         isAnimation ? animationHide(0, 0, 0, 2) : animationShow(Math.PI * 2, 5, 1, 13.4)
     }, [isAnimation])
-    const [isHover, setIsHover] = useState(false);
 
-    useEffect(() => {
-        cursor(isHover)
-    }, [isHover])
     return (
         <group
             position={item.position}
-            onPointerLeave={() => setIsHover(false)}
-            onPointerMove={() => setIsHover(true)}
+            onPointerLeave={(event) => { setIsHover(false); cursor(event, false) }}
+            onPointerMove={(event) => { setIsHover(true); cursor(event, true) }}
             onClick={(event) => openPopUp(event)}
         >
             <TopSide

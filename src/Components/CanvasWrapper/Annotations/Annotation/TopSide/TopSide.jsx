@@ -16,6 +16,7 @@ TopSide.propTypes = {
     svgOpacity: PropTypes.number,
     heightRod: PropTypes.number,
     id: PropTypes.number,
+    isHover: PropTypes.bool,
 };
 
 export default function TopSide({ colors, thetaRing, radiusCircle, svgOpacity, heightRod, id, isHover }) {
@@ -27,36 +28,50 @@ export default function TopSide({ colors, thetaRing, radiusCircle, svgOpacity, h
         dampLookAt(groupRef.current, camera.position, 0.25, delta);
     });
 
-    const hoverAnimation = (kill) => {
+    const hoverAnimation = () => {
         gsap.to(groupRef.current.scale, {
             duration: 0.6,
             x: 1.3,
             y: 1.3,
             z: 1.3,
-            ease: "bounce.out"
         })
     }
-    const standartAnimation = () => {
-        gsap.to(groupRef.current.scale, {
+    const standartAnimation = (isScale, isHover) => {
+        const animStandart = gsap.to(groupRef.current.scale, {
             duration: 1,
             x: isScale ? 1 : 1.1,
             y: isScale ? 1 : 1.1,
             z: isScale ? 1 : 1.1,
             ease: "power1.out",
             onComplete: () => {
-                setIsScale(!isScale)
+                if (!isHover) {
+                    setIsScale(!isScale);
+                }
             }
         });
-    }
-
-    useEffect(() => {
+    
         if (isHover) {
-            hoverAnimation()
-        } else {
-            standartAnimation()
+            animStandart.kill();
         }
-
-    }, [isScale, id, isHover])
+    
+        return animStandart;
+    }
+    
+    useEffect(() => {
+        let animation;
+    
+        if (isHover) {
+            hoverAnimation();
+        } else {
+            animation = standartAnimation(isScale, isHover);
+        }
+    
+        return () => {
+            if (animation) {
+                animation.kill();
+            }
+        };
+    }, [isScale, isHover, id]);
 
     return (
         <group ref={groupRef} position={[0, heightRod + 6.8, 0]} scale={[1.1, 1.1, 1.1]}>
