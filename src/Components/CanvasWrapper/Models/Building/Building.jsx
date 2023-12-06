@@ -9,7 +9,7 @@ Building.propTypes = {
 
 
 export default function Building({ setLoad }) {
-    const { nodes, materials } = useGLTF("models/building/scene.gltf");
+    const { nodes, materials } = useGLTF("models/building0/scene.gltf");
     const isPanorama = useSelector((state) => state.statePanorama.isActive);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ export default function Building({ setLoad }) {
     );
 }
 
-useGLTF.preload("models/building/scene.gltf");
+useGLTF.preload("models/building0/scene.gltf");
