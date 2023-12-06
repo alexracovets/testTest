@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import AnnotationPopUp from "./AnnotationPopUp/AnnotationPopUp";
 import CanvasWrapper from "../CanvasWrapper/CanvasWrapper";
+import ClosePanorama from "./ClosePanorama/ClosePanorama";
 import Loader from "../Loader/Loader";
 import Menu from "../Menu/Menu";
 
@@ -16,6 +17,7 @@ export default function FirstScreen() {
             <div className={s.container}>
                 <CanvasWrapper setLoad={setLoad} />
                 <AnnotationPopUp />
+                <ClosePanorama />
                 {isLoad && <Loader />}
             </div>
         </section>

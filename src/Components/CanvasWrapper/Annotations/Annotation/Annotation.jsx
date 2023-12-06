@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Rod from './Rod/Rod';
 import TopSide from './TopSide/TopSide';
@@ -14,6 +14,7 @@ Annotation.propTypes = {
 
 export default function Annotation({ item }) {
     const dispatch = useDispatch();
+    const isPanorama = useSelector((state) => state.statePanorama.isActive);
     const [height, setHeight] = useState(null);
     const [isHover, setIsHover] = useState(false);
     const [isAnimation, setAnimation] = useState(false);
@@ -25,6 +26,16 @@ export default function Annotation({ item }) {
         svgOpacity: 1,
         heightRod: 13.4,
     });
+
+    const handlerLeave = () => {
+        setIsHover(false);
+        cursor(false);
+    }
+
+    const handlerMove = () => {
+        setIsHover(true);
+        cursor(true);
+    }
 
     const openPopUp = (event) => {
         event.stopPropagation();
@@ -114,9 +125,9 @@ export default function Annotation({ item }) {
     return (
         <group
             position={item.position}
-            onPointerLeave={() => { setIsHover(false); cursor(false) }}
-            onPointerMove={() => { setIsHover(true); cursor(true) }}
-            onClick={(event) => openPopUp(event)}
+            onPointerLeave={() => { !isPanorama && handlerLeave() }}
+            onPointerMove={() => { !isPanorama && handlerMove() }}
+            onClick={(event) => { !isPanorama && openPopUp(event) }}
         >
             <TopSide
                 colors={renderColors}

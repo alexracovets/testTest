@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
 
 import annotationPopUp from '../../../static/annotationPopUp';
+import { setActiveStatus } from '../../../store/reducers/statePanorama';
+import { changeActiveStatus } from '../../../store/reducers/stateAnnotationsPopUp';
 
 import s from './AnnotationPopUp.module.scss';
 
@@ -16,6 +18,11 @@ export default function AnnotationPopUp() {
         annotationPopUp(dispatch, false);
     };
 
+    const openPanorama = () => {
+        dispatch(changeActiveStatus(false));
+        dispatch(setActiveStatus(true));
+    }
+
     return (
         <aside className={state.isActive ? s.popUp + ' ' + s.active : s.popUp}>
             <div className={s.wrapper}>
@@ -26,7 +33,7 @@ export default function AnnotationPopUp() {
                 <p> {t(`annotation.${state.content}.tag`)} </p>
                 <p className={s.location}> {t(`annotation.${state.content}.location`)} </p>
                 <img className={s.image} src={`/img/annotation/${state.content}.jpg`} />
-                <button type='button'>
+                <button type='button' onClick={() => openPanorama()}>
                     <span>Відкрити</span>
                     <SlArrowRight />
                 </button>

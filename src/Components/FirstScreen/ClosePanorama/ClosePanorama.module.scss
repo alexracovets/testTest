@@ -1,0 +1,28 @@
+@import '../../../global/variable.scss';
+
+.cross {
+    position: absolute;
+    z-index: 10;
+    top: 2.375rem;
+    right: 2.375rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: $base-yellow;
+    border-radius: 50%;
+    border: none;
+    display: none;
+
+    &.active {
+        display: flex;
+    }
+
+    svg {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 2rem;
+        height: auto;
+    }
+}
