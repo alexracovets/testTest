@@ -11,7 +11,7 @@ export default function Arrow({ position, texture }) {
     return (
         <group position={position} scale={[2, 0.5, 2]}>
             <mesh name="Plane" geometry={nodes.Plane.geometry} position={[5.122, -0.5, 0]} rotation={[0, Math.PI / 4, 0]} scale={[0.5, 1, 1.35]} >
-                <meshMatcapMaterial matcap={texture} />
+                <meshMatcapMaterial matcap={texture} transparent={true} opacity={0.9} />
             </mesh>
         </group>
     );
