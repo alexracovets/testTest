@@ -42,13 +42,10 @@ export default function Panorama() {
 
     useEffect(() => {
         if (texturesLoaded.length === panorama.panoramCurrent.length && texturesLoaded.length > 0 && texturesLoaded.every((loaded) => loaded === true)) {
-            setTimeout(() => {
-                dispatch(setIsLoad(true));
-            }, 2000)
+            setTimeout(() => dispatch(setIsLoad(true)), 2000)
         }
-
     }, [texturesLoaded, panorama.panoramCurrent.length, dispatch]);
-    console.log(texturesLoaded)
+
     return (
         <>
             {
