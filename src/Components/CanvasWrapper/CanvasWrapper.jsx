@@ -21,7 +21,7 @@ export default function CanvasWrapper({ setLoad }) {
             <Controls />
             <Annotations />
             <BuildingNew setLoad={setLoad} />
-            <Panorama /> 
+            <Panorama />
         </Canvas>
     )
 }

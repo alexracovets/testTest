@@ -1,4 +1,4 @@
-import { changeActiveStatus, setPopUpContent } from '../store/reducers/stateAnnotationsPopUp';
+import { setPopUpContent, changeActiveStatus } from '../store/reducers/stateAnnotationsPopUp';
 import { setTarget, setDefault } from '../store/reducers/stateCamera';
 
 const annotationPopUp = (dispatch, status, content, heightAnnotation) => {

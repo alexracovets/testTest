@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader";
 import Menu from "../Menu/Menu";
 
 import s from './FirstScreen.module.scss';
+import PanoramaLoader from "../CanvasWrapper/Panorama/PanoramaLoader/PanoramaLoader";
 
 export default function FirstScreen() {
     const [isLoad, setLoad] = useState(true);
@@ -19,6 +20,7 @@ export default function FirstScreen() {
                 <AnnotationPopUp />
                 <ClosePanorama />
                 {isLoad && <Loader />}
+                <PanoramaLoader />
             </div>
         </section>
     )

@@ -1,7 +1,7 @@
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setActiveStatus } from '../../../store/reducers/statePanorama';
+import { setActiveStatus, setIsLoad, setPanoram } from '../../../store/reducers/statePanorama';
 import { setDefault } from '../../../store/reducers/stateCamera';
 
 import s from './ClosePanorama.module.scss';
@@ -12,7 +12,9 @@ export default function ClosePanorama() {
 
     const closePanorama = () => {
         dispatch(setActiveStatus(false));
-        dispatch(setDefault())
+        dispatch(setDefault());
+        dispatch(setIsLoad(false));
+        dispatch(setPanoram([]))
     }
     return (
         <>

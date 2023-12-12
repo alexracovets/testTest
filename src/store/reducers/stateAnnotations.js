@@ -9,6 +9,47 @@ const stateAnnotations = createSlice({
                 position: [-100, 0, 58],
                 cameraPosition: [-84, 32, 82],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/1/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        interactive: [
+                            {
+                                to: 2
+                            },
+                            {
+                                to: 3
+                            }
+                        ],
+                        id: 1
+                    },
+                    {
+                        current: 'panoram/1/2.jpg',
+                        cameraPosition: [0, 0, 0],
+                        interactive: [
+                            {
+                                to: 1
+                            },
+                            {
+                                to: 3
+                            }
+                        ],
+                        id: 2
+                    },
+                    {
+                        current: 'panoram/1/3.jpg',
+                        cameraPosition: [0, 0, 0],
+                        interactive: [
+                            {
+                                to: 1
+                            },
+                            {
+                                to: 2
+                            }
+                        ],
+                        id: 3
+                    }
+                ],
                 id: 1
             },
             {

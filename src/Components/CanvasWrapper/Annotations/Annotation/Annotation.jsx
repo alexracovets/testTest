@@ -7,6 +7,7 @@ import Rod from './Rod/Rod';
 import TopSide from './TopSide/TopSide';
 import cursor from '../../../../static/cursor';
 import annotationPopUp from '../../../../static/annotationPopUp';
+import { setPanoram } from '../../../../store/reducers/statePanorama';
 
 Annotation.propTypes = {
     item: PropTypes.object,
@@ -37,9 +38,10 @@ export default function Annotation({ item }) {
         cursor(true);
     }
 
-    const openPopUp = (event) => {
+    const openPopUp = (event, item) => {
         event.stopPropagation();
         annotationPopUp(dispatch, true, item, targetYPosition);
+        dispatch(setPanoram(item.panoram));
     }
 
     const animationHide = (thetaRing, radiusCircle, svgOpacity, heightRod) => {
@@ -127,7 +129,7 @@ export default function Annotation({ item }) {
             position={item.position}
             onPointerLeave={() => { !isPanorama && handlerLeave() }}
             onPointerMove={() => { !isPanorama && handlerMove() }}
-            onClick={(event) => { !isPanorama && openPopUp(event) }}
+            onClick={(event) => { !isPanorama && openPopUp(event, item) }}
         >
             <TopSide
                 colors={renderColors}
