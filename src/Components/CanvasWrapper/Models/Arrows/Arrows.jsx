@@ -4,7 +4,7 @@ import * as THREE from 'three';
 
 import Arrow from './Arrow';
 import ArrowsTrans from './ArrowsTrans';
-import matcapYellow from '/material/yellow3.png';
+import matcapYellow from '/material/white.png';
 
 Arrows.propTypes = {
     setLoad: PropTypes.func,
@@ -12,13 +12,13 @@ Arrows.propTypes = {
 };
 
 export default function Arrows({ position }) {
-    const [yellowTexture] = useLoader(THREE.TextureLoader, [matcapYellow]);
+    const [texture] = useLoader(THREE.TextureLoader, [matcapYellow]);
 
     return (
         <group position={position} scale={[2, 2, 2]}>
-            <Arrow position={[-10, 0, 0]} texture={yellowTexture} />
-            <ArrowsTrans position={[-5, 0, 0]} texture={yellowTexture} />
-            <ArrowsTrans position={[-0, 0, 0]} texture={yellowTexture} />
+            <Arrow position={[-10, 0, 0]} texture={texture} />
+            <ArrowsTrans position={[-5, 0, 0]} texture={texture} />
+            <ArrowsTrans position={[-0, 0, 0]} texture={texture} />
         </group>
     );
 } 

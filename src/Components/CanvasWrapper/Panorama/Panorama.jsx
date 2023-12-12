@@ -18,11 +18,11 @@ export default function Panorama() {
         const newArray = await Promise.all(
             panorama.panoramCurrent.map(async (item) => {
                 const texture = await textureLoader.loadAsync(item.current);
+                setTexturesLoaded((prevTextures) => [...prevTextures, true]);
                 return { current: texture };
             })
         );
         setMaterial((prevMaterial) => [...prevMaterial, ...newArray]);
-        setTexturesLoaded((prevTextures) => [...prevTextures, true]);
     };
 
     useEffect(() => {
@@ -41,14 +41,14 @@ export default function Panorama() {
     }, [panorama, textureLoader]);
 
     useEffect(() => {
-        if (texturesLoaded.length > 0 && texturesLoaded.every((loaded) => loaded === true)) {
+        if (texturesLoaded.length === panorama.panoramCurrent.length && texturesLoaded.length > 0 && texturesLoaded.every((loaded) => loaded === true)) {
             setTimeout(() => {
-                dispatch(setIsLoad(true))
-            }, 1000)
+                dispatch(setIsLoad(true));
+            }, 2000)
         }
 
-    }, [texturesLoaded, dispatch]);
-
+    }, [texturesLoaded, panorama.panoramCurrent.length, dispatch]);
+    console.log(texturesLoaded)
     return (
         <>
             {
