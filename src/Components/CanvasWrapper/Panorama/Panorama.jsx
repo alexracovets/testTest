@@ -3,6 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 import * as THREE from 'three';
 
 import Arrows from "../Models/Arrows/Arrows";
+import loadTextures from '../../../static/loadTextures';
 import PanoramaSphere from './PanoramaSphere/PanoramaSphere';
 import { setIsLoad } from '../../../store/reducers/statePanorama';
 
@@ -13,23 +14,6 @@ export default function Panorama() {
     const [material, setMaterial] = useState([]);
     const [texturesLoaded, setTexturesLoaded] = useState([]);
 
-    const loadTextures = async (panorama, textureLoader) => {
-        const newArray = await Promise.all(
-            panorama.panoramCurrent.map(async (item, index) => {
-                const texture = await textureLoader.loadAsync(item.current);
-                setTexturesLoaded((prevTextures) => [...prevTextures, true]);
-                return {
-                    current: texture,
-                    cameraPosition: panorama.panoramCurrent[index].cameraPosition,
-                    isShow: panorama.panoramCurrent[index].isShow,
-                    interactive: panorama.panoramCurrent[index].interactive,
-                    id: panorama.panoramCurrent[index].id
-                };
-            })
-        );
-        setMaterial((prevMaterial) => [...prevMaterial, ...newArray]);
-    };
-
     useEffect(() => {
         if (!panorama.isActive) {
             setTexturesLoaded([]);
@@ -38,36 +22,35 @@ export default function Panorama() {
     }, [panorama])
 
     useEffect(() => {
+
         panorama.isActive &&
             !panorama.isLoad &&
+            panorama.panoramCurrent &&
             panorama.panoramCurrent.length &&
             panorama.panoramCurrent.length > 0 &&
-            loadTextures(panorama, textureLoader);
+            loadTextures(panorama, textureLoader, setTexturesLoaded, setMaterial);
+
     }, [panorama, textureLoader]);
 
     useEffect(() => {
-        if (texturesLoaded.length === panorama.panoramCurrent.length && texturesLoaded.length > 0 && texturesLoaded.every((loaded) => loaded === true)) {
+
+        texturesLoaded.length &&
+            texturesLoaded.length === panorama.panoramCurrent.length &&
+            texturesLoaded.length > 0 &&
+            texturesLoaded.every((loaded) => loaded === true) &&
             setTimeout(() => dispatch(setIsLoad(true)), 2000)
-        }
-    }, [texturesLoaded, panorama.panoramCurrent.length, dispatch]);
+
+    }, [texturesLoaded, panorama.panoramCurrent, dispatch]);
 
     const teleport = (event, id) => {
         event.stopPropagation();
         setMaterial((prevMaterial) => {
             return prevMaterial.map((item) => {
                 if (item.id === id) {
-                    return {
-                        ...item,
-                        isShow: true,
-                    };
-                }
-                return {
-                    ...item,
-                    isShow: false,
-                };
+                    return { ...item, isShow: true }
+                } else return { ...item, isShow: false }
             });
         });
-        console.log(id);
     };
 
     return (
@@ -78,13 +61,11 @@ export default function Panorama() {
                         <group key={item.id}>
                             <PanoramaSphere id={item.id} texture={item.current} isShow={item.isShow} />
                             {item.isShow &&
-                                item.interactive.arrow.map((item, index) => {
-                                    return (
-                                        <group key={index} onClick={(event) => teleport(event, item.to)}>
-                                            <Arrows position={item.position} rotation={item.rotation} />
-                                        </group>
-                                    )
-                                })
+                                item.interactive.arrow.map((item, index) =>
+                                    <group key={index} onClick={(event) => teleport(event, item.to)}>
+                                        <Arrows position={item.position} rotation={item.rotation} />
+                                    </group>
+                                )
                             }
                         </group>
                     )
