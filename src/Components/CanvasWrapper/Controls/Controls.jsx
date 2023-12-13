@@ -47,11 +47,28 @@ export default function Controls() {
 
     useEffect(() => {
         if (isPanorama) {
+            // gsap.to(controls.current.target, {
+            //     duration: 1.2,
+            //     x: 13.02,
+            //     y: -30.74,
+            //     z: -32.77
+            // });
+            // gsap.to(controls.current, {
+            //     duration: 1.2,
+            //     minDistance: 0.1
+            // });
+            // gsap.to(camera.position, {
+            //     duration: 1.2,
+            //     x: 13.21,
+            //     y: -28.63,
+            //     z: -49.76,
+            // });
+
             gsap.to(controls.current.target, {
                 duration: 1.2,
-                x: 13.02,
-                y: -30.74,
-                z: -32.77
+                x: 0.1,
+                y: 100,
+                z: 0.1
             });
             gsap.to(controls.current, {
                 duration: 1.2,
@@ -59,9 +76,9 @@ export default function Controls() {
             });
             gsap.to(camera.position, {
                 duration: 1.2,
-                x: 13.21,
-                y: -28.63,
-                z: -49.76,
+                x: 180,
+                y: 320,
+                z: 40,
             });
         }
     }, [isPanorama, camera.position])
