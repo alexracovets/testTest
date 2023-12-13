@@ -93,8 +93,7 @@ export default function Controls() {
             minPolarAngle={isPanorama ? Math.PI / 3.2 : -Math.PI / 2}
             maxPolarAngle={isPanorama ? Math.PI / 1.58 : Math.PI / 2.1}
             zoomSpeed={3}
-            panSpeed={0.8}
-            rotateSpeed={0.3}
+            rotateSpeed={-0.3}
             autoRotate={false}
             autoRotateSpeed={0.5}
             enableZoom={true}

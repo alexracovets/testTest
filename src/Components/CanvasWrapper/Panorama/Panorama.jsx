@@ -6,6 +6,7 @@ import Arrows from "../Models/Arrows/Arrows";
 import loadTextures from '../../../static/loadTextures';
 import PanoramaSphere from './PanoramaSphere/PanoramaSphere';
 import { setIsLoad } from '../../../store/reducers/statePanorama';
+import { useControls } from 'leva';
 
 export default function Panorama() {
     const dispatch = useDispatch();
@@ -52,7 +53,16 @@ export default function Panorama() {
             });
         });
     };
-
+    const position = useControls({
+        positionX: 1,
+        positionY: 30,
+        positionZ: 1,
+    })
+    const rotation = useControls({
+        rotationX: 0.0,
+        rotationY: 0.0,
+        rotationZ: 0.0
+    })
     return (
         <>
             {
@@ -71,6 +81,7 @@ export default function Panorama() {
                     )
                 })
             }
+            <Arrows position={[position.positionX, position.positionY, position.positionZ]} rotation={[rotation.rotationX, rotation.rotationY, rotation.rotationZ]} />
         </>
     )
 }

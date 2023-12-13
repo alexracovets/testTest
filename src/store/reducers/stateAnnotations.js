@@ -18,13 +18,13 @@ const stateAnnotations = createSlice({
                             arrow: [
                                 {
                                     to: 2,
-                                    position: [-53, 40, -110],
-                                    rotation: [0, -1.1, 0]
+                                    position: [-80, 30, -190],
+                                    rotation: [0, -1.04, 0]
                                 },
                                 {
                                     to: 3,
-                                    position: [-70, 40, -5],
-                                    rotation: [0, -0.1, 0]
+                                    position: [-110, 30, 0],
+                                    rotation: [0, 0.04, 0]
                                 }
                             ],
                             masks: []
