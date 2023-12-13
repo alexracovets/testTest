@@ -13,40 +13,64 @@ const stateAnnotations = createSlice({
                     {
                         current: 'panoram/1/1.jpg',
                         cameraPosition: [0, 0, 0],
-                        interactive: [
-                            {
-                                to: 2
-                            },
-                            {
-                                to: 3
-                            }
-                        ],
+                        isShow: true,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 2,
+                                    position: [-53, 40, -110],
+                                    rotation: [0, -1.1, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [-70, 40, -5],
+                                    rotation: [0, -0.1, 0]
+                                }
+                            ],
+                            masks: []
+                        },
                         id: 1
                     },
                     {
                         current: 'panoram/1/2.jpg',
                         cameraPosition: [0, 0, 0],
-                        interactive: [
-                            {
-                                to: 1
-                            },
-                            {
-                                to: 3
-                            }
-                        ],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [135, 40, 67],
+                                    rotation: [0, 2.6, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [65, 40, 100],
+                                    rotation: [0, 2.2, 0]
+                                }
+                            ],
+                            masks: []
+                        },
                         id: 2
                     },
                     {
                         current: 'panoram/1/3.jpg',
                         cameraPosition: [0, 0, 0],
-                        interactive: [
-                            {
-                                to: 1
-                            },
-                            {
-                                to: 2
-                            }
-                        ],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [-42, 40, 80],
+                                    rotation: [0, 1.1, 0]
+                                },
+                                {
+                                    to: 2,
+                                    position: [105, 40, 66],
+                                    rotation: [0, 2.6, 0]
+                                }
+                            ],
+                            masks: []
+                        },
                         id: 3
                     }
                 ],
@@ -56,6 +80,40 @@ const stateAnnotations = createSlice({
                 position: [100, 13.3, 12],
                 cameraPosition: [98.7, 50, -24.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/2/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 2,
+                                    position: [10, 40, 110],
+                                    rotation: [0, 1.7, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 1
+                    },
+                    {
+                        current: 'panoram/2/2.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [0, 40, -100],
+                                    rotation: [0, -1.6, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 2
+                    }
+                ],
                 id: 2
             },
             {
@@ -68,30 +126,232 @@ const stateAnnotations = createSlice({
                 position: [-85, 9.7, 43],
                 cameraPosition: [-79, 38.7, 59.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/4/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 2,
+                                    position: [104, 40, -33],
+                                    rotation: [0, -2.9, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [185, 30, -30],
+                                    rotation: [0, -3.4, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 1
+                    },
+                    {
+                        current: 'panoram/4/2.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [-94, 40, 15],
+                                    rotation: [0, 0.1, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [108, 30, -3],
+                                    rotation: [0, 3.1, 0]
+                                },
+                                {
+                                    to: 4,
+                                    position: [66, 30, 50],
+                                    rotation: [0, 2.5, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 2
+                    },
+                    {
+                        current: 'panoram/4/3.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [65, 30, 160],
+                                    rotation: [0, 2.1, 0]
+                                },
+                                {
+                                    to: 2,
+                                    position: [32, 30, 91],
+                                    rotation: [0, 1.6, 0]
+                                },
+                                {
+                                    to: 4,
+                                    position: [56, 30, 0],
+                                    rotation: [0, 3.2, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 3
+                    },
+                    {
+                        current: 'panoram/4/4.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [62, 40, -120],
+                                    rotation: [0, -1.7, 0]
+                                },
+                                {
+                                    to: 2,
+                                    position: [50, 30, -43],
+                                    rotation: [0, -2.5, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [-8, 30, 62],
+                                    rotation: [0, 1.3, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 4
+                    }
+                ],
                 id: 4
             },
             {
                 position: [-70, 10.2, 43],
                 cameraPosition: [-52.8, 37.4, 55.8],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/5/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 2,
+                                    position: [90, 30, 20],
+                                    rotation: [0, -3.5, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [161, 30, 48],
+                                    rotation: [0, 2.8, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 1
+                    },
+                    {
+                        current: 'panoram/5/2.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [-115, 30, -13],
+                                    rotation: [0, -0.2, 0]
+                                },
+                                {
+                                    to: 3,
+                                    position: [81, 30, 43],
+                                    rotation: [0, -3.2, 0]
+                                }
+                            ],
+                            masks: []
+                        },
+                        id: 2
+                    },
+                    {
+                        current: 'panoram/5/3.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [175, 30, -25],
+                                    rotation: [0, 3.4, 0]
+                                },
+                                {
+                                    to: 2,
+                                    position: [80, 30, -10],
+                                    rotation: [0, 3.1, 0]
+                                },
+                            ],
+                            masks: []
+                        },
+                        id: 3
+                    }
+                ],
                 id: 5
             },
             {
                 position: [93, 13.3, 30],
                 cameraPosition: [74.4, 41.8, 19.6],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/6/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [],
+                            masks: []
+                        },
+                        id: 1
+                    }
+                ],
                 id: 6
             },
             {
                 position: [-70, 0.7, 61],
                 cameraPosition: [-49, 26.8, 77.5],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/7/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [],
+                            masks: []
+                        },
+                        id: 1
+                    }
+                ],
                 id: 7
             },
             {
                 position: [-95, 7.6, 4],
                 cameraPosition: [-122.8, 42.7, 19.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/8/1.jpg',
+                        cameraPosition: [0, 0, 0],
+                        isShow: true,
+                        interactive: {
+                            arrow: [],
+                            masks: []
+                        },
+                        id: 1
+                    }
+                ],
                 id: 8
             },
             {

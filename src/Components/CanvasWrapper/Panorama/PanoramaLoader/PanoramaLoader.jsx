@@ -11,6 +11,7 @@ export default function PanoramaLoader() {
     useEffect(() => {
         panorama.isActive && !panorama.isLoad ? setActive(true) : setActive(false)
     }, [panorama])
+    
     return (
         <div className={isActive ? s.panorama__load + ' ' + s.active : s.panorama__load}>
             <div className={s.panorama__wrapper}>
