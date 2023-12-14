@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
-import { useFrame, useThree } from '@react-three/fiber';
+import { useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
@@ -61,15 +61,10 @@ export default function Controls() {
                 duration: .6,
                 x: panorama.cameraPosition[0],
                 y: panorama.cameraPosition[1],
-                z: panorama.cameraPosition[2],
-                ease: "expoScale(0.5,7,none)",
+                z: panorama.cameraPosition[2]
             });
         }
-    }, [panorama, camera.position])
-
-    useFrame(() => {
-        console.log(camera.position)
-    })
+    }, [panorama, camera.position]) 
 
     return (
         <OrbitControls
