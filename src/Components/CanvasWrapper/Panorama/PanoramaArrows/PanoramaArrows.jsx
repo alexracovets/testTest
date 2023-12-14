@@ -1,6 +1,7 @@
 import { useLoader } from '@react-three/fiber';
-import { Plane } from '@react-three/drei';
 import PropTypes, { bool } from 'prop-types';
+import { useEffect, useState } from "react";
+import { Plane } from '@react-three/drei';
 import * as THREE from 'three';
 
 import Arrow from '../../Models/Arrow/Arrow';
@@ -16,6 +17,11 @@ PanoramaArrows.propTypes = {
 
 export default function PanoramaArrows({ position, rotation, isShow }) {
     const [texture] = useLoader(THREE.TextureLoader, [matcapYellow]);
+    const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        cursor(isActive);
+    }, [isActive])
 
     return (
         <group position={position} rotation={rotation} scale={[2, 2, 2]}>
@@ -27,8 +33,8 @@ export default function PanoramaArrows({ position, rotation, isShow }) {
                 position={[5, 0, 0]}
                 rotation={[-Math.PI / 2, 0, 0]}
                 visible={false}
-                onPointerLeave={() => cursor(false)}
-                onPointerMove={() => cursor(true)}
+                onPointerLeave={() => setIsActive(false)}
+                onPointerMove={() => setIsActive(true)}
             />
         </group>
     );
