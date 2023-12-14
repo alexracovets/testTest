@@ -27,7 +27,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 0.04, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     },
@@ -48,7 +48,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 2.2, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 2
                     },
@@ -69,7 +69,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 2.6, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 3
                     }
@@ -93,7 +93,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 1.7, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     },
@@ -109,7 +109,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, -1.6, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 2
                     }
@@ -144,7 +144,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, -3.4, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     },
@@ -170,7 +170,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 2.5, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 2
                     },
@@ -196,7 +196,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 3.2, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 3
                     },
@@ -222,7 +222,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 1.3, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 4
                     }
@@ -251,7 +251,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 2.8, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     },
@@ -272,7 +272,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, -3.2, 0]
                                 }
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 2
                     },
@@ -293,7 +293,7 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 3.1, 0]
                                 },
                             ],
-                            masks: []
+                            mask: []
                         },
                         id: 3
                     }
@@ -311,7 +311,7 @@ const stateAnnotations = createSlice({
                         isShow: true,
                         interactive: {
                             arrow: [],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     }
@@ -329,7 +329,7 @@ const stateAnnotations = createSlice({
                         isShow: true,
                         interactive: {
                             arrow: [],
-                            masks: []
+                            mask: []
                         },
                         id: 1
                     }
@@ -347,7 +347,17 @@ const stateAnnotations = createSlice({
                         isShow: true,
                         interactive: {
                             arrow: [],
-                            masks: []
+                            mask: [
+                                {
+                                    image: 'panoram/8/mask/1.png',
+                                    args: {
+                                        width: 30,
+                                        height: 21,
+                                        position: [38.00, 88.08, 24.00],
+                                        rotation: [0, -2.41, 0]
+                                    }
+                                }
+                            ]
                         },
                         id: 1
                     }

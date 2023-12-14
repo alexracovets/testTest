@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useMemo } from "react";
 import * as THREE from 'three';
 
-import Arrows from "../Models/Arrows/Arrows";
+import MaskSphere from './MaskSphere/MaskSphere';
 import loadTextures from '../../../static/loadTextures';
+import PanoramaArrows from './PanoramaArrows/PanoramaArrows';
 import PanoramaSphere from './PanoramaSphere/PanoramaSphere';
 import { setIsLoad } from '../../../store/reducers/statePanorama';
-import { useControls } from 'leva';
 
 export default function Panorama() {
     const dispatch = useDispatch();
@@ -53,35 +53,36 @@ export default function Panorama() {
             });
         });
     };
-    const position = useControls({
-        positionX: 1,
-        positionY: 30,
-        positionZ: 1,
-    })
-    const rotation = useControls({
-        rotationX: 0.0,
-        rotationY: 0.0,
-        rotationZ: 0.0
-    })
+
     return (
         <>
             {
-                panorama.isLoad && material.map((item) => {
+                panorama.isLoad && material.map((panoram) => {
                     return (
-                        <group key={item.id}>
-                            <PanoramaSphere id={item.id} texture={item.current} isShow={item.isShow} />
-                            {item.isShow &&
-                                item.interactive.arrow.map((item, index) =>
-                                    <group key={index} onClick={(event) => teleport(event, item.to)}>
-                                        <Arrows position={item.position} rotation={item.rotation} />
-                                    </group>
-                                )
+                        <group key={panoram.id}>
+                            <PanoramaSphere id={panoram.id} texture={panoram.current} isShow={panoram.isShow} />
+                            {panoram.isShow && <>
+                                {
+                                    panoram.interactive.arrow.map((item, index) =>
+                                        <group key={index} onClick={(event) => teleport(event, item.to)}>
+                                            <PanoramaArrows position={item.position} rotation={item.rotation} isShow={panoram.isShow} />
+                                        </group>
+                                    )
+                                }
+                                {
+                                    panoram.interactive.mask.map((item, index) => {
+                                        const maskTexture = textureLoader.load(item.image)
+                                        return (
+                                            <MaskSphere key={index} id={panoram.id + 1} texture={maskTexture} args={item.args} />
+                                        )
+                                    })
+                                }
+                            </>
                             }
                         </group>
                     )
                 })
             }
-            <Arrows position={[position.positionX, position.positionY, position.positionZ]} rotation={[rotation.rotationX, rotation.rotationY, rotation.rotationZ]} />
         </>
     )
 }
