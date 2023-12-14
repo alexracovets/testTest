@@ -5,6 +5,9 @@ const statePanorama = createSlice({
     initialState: {
         isActive: false,
         isLoad: false,
+        cameraTarget: [0, 100, 0],
+        cameraDistance: 0.1,
+        cameraPosition: [180, 320, 40],
         panoramCurrent: []
     },
     reducers: {
@@ -16,10 +19,13 @@ const statePanorama = createSlice({
         },
         setIsLoad: (state, action) => {
             state.isLoad = action.payload;
-        }
+        },
+        setCameraPosition: (state, action) => {
+            state.cameraPosition = action.payload;
+        },
     }
 });
 
-export const { setActiveStatus, setPanoram, setIsLoad } = statePanorama.actions;
+export const { setActiveStatus, setPanoram, setIsLoad, setCameraPosition } = statePanorama.actions;
 
 export default statePanorama.reducer;

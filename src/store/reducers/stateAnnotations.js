@@ -19,12 +19,14 @@ const stateAnnotations = createSlice({
                                 {
                                     to: 2,
                                     position: [-80, 30, -190],
-                                    rotation: [0, -1.04, 0]
+                                    rotation: [0, -1.04, 0],
+                                    camera: [0.098, 100, -0.014]
                                 },
                                 {
                                     to: 3,
                                     position: [-110, 30, 0],
-                                    rotation: [0, 0.04, 0]
+                                    rotation: [0, 0.04, 0],
+                                    camera: [-0.062, 99.996, 0.078]
                                 }
                             ],
                             mask: []
@@ -40,12 +42,14 @@ const stateAnnotations = createSlice({
                                 {
                                     to: 1,
                                     position: [135, 40, 67],
-                                    rotation: [0, 2.6, 0]
+                                    rotation: [0, 2.6, 0],
+                                    camera: [-0.02, 100.01, -0.097]
                                 },
                                 {
                                     to: 3,
                                     position: [65, 40, 100],
-                                    rotation: [0, 2.2, 0]
+                                    rotation: [0, 2.2, 0],
+                                    camera: [0.08, 99.991, 0.059]
                                 }
                             ],
                             mask: []
@@ -61,12 +65,14 @@ const stateAnnotations = createSlice({
                                 {
                                     to: 1,
                                     position: [-42, 40, 80],
-                                    rotation: [0, 1.1, 0]
+                                    rotation: [0, 1.1, 0],
+                                    camera: [-0.098, 99.995, -0.016]
                                 },
                                 {
                                     to: 2,
                                     position: [105, 40, 66],
-                                    rotation: [0, 2.6, 0]
+                                    rotation: [0, 2.6, 0],
+                                    camera: [0.079, 99.997, 0.060]
                                 }
                             ],
                             mask: []

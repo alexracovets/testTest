@@ -9,7 +9,7 @@ import cursor from '../../../../static/cursor';
 MaskSphere.propTypes = {
     id: PropTypes.number,
     texture: PropTypes.object,
-    args: PropTypes.array
+    args: PropTypes.object
 };
 export default function MaskSphere({ id, texture, args }) {
     const [isActive, setIsActive] = useState(false);

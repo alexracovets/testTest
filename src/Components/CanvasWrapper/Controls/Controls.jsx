@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
@@ -12,7 +12,7 @@ export default function Controls() {
     const { camera, gl: { domElement } } = useThree();
     const cameraParameter = useSelector((state) => state.stateCamera);
     const isAnnotation = useSelector((state) => state.stateAnnotationsPopUp.isActive);
-    const isPanorama = useSelector((state) => state.statePanorama.isActive);
+    const panorama = useSelector((state) => state.statePanorama);
 
     useEffect(() => {
         if (cameraParameter.isAnimation) {
@@ -46,32 +46,37 @@ export default function Controls() {
     }, [cameraParameter, camera.position, isAnnotation, dispatch])
 
     useEffect(() => {
-        if (isPanorama) {
+        if (panorama.isActive) {
             gsap.to(controls.current.target, {
-                duration: 1.2,
-                x: 0.1,
-                y: 100,
-                z: 0.1
+                duration: .6,
+                x: panorama.cameraTarget[0],
+                y: panorama.cameraTarget[1],
+                z: panorama.cameraTarget[2],
             });
             gsap.to(controls.current, {
-                duration: 1.2,
-                minDistance: 0.1
+                duration: .6,
+                minDistance: panorama.cameraDistance
             });
             gsap.to(camera.position, {
-                duration: 1.2,
-                x: 180,
-                y: 320,
-                z: 40,
+                duration: .6,
+                x: panorama.cameraPosition[0],
+                y: panorama.cameraPosition[1],
+                z: panorama.cameraPosition[2],
+                ease: "expoScale(0.5,7,none)",
             });
         }
-    }, [isPanorama, camera.position])
+    }, [panorama, camera.position])
+
+    useFrame(() => {
+        console.log(camera.position)
+    })
 
     return (
         <OrbitControls
             ref={controls}
             args={[camera, domElement]}
-            minPolarAngle={isPanorama ? Math.PI / 3.2 : -Math.PI / 2}
-            maxPolarAngle={isPanorama ? Math.PI / 1.58 : Math.PI / 2.1}
+            minPolarAngle={panorama.isActive ? Math.PI / 3.2 : -Math.PI / 2}
+            maxPolarAngle={panorama.isActive ? Math.PI / 1.58 : Math.PI / 2.1}
             zoomSpeed={3}
             rotateSpeed={-0.3}
             autoRotate={false}
@@ -79,7 +84,7 @@ export default function Controls() {
             enableZoom={true}
             enablePan={true}
             target={[10, 0, 0]}
-            maxDistance={isPanorama ? 0 : 200}
+            maxDistance={panorama.isActive ? 0 : 200}
             minDistance={120}
         />
     )
