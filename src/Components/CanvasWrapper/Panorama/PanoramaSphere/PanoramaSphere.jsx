@@ -1,6 +1,6 @@
 import { Sphere } from "@react-three/drei";
-import PropTypes from 'prop-types';
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 
@@ -16,7 +16,7 @@ export default function PanoramaSphere({ id, texture, isShow }) {
 
     const animOpcity = (opacity) => {
         gsap.to(animParam, {
-            duration: 1,
+            duration: .6,
             opacity: opacity,
             ease: "sine.inOut",
             onUpdate: () => setAnimParam({ ...animParam })

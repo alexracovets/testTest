@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
@@ -46,17 +46,9 @@ export default function Controls() {
     }, [cameraParameter, camera.position, isAnnotation, dispatch])
 
     useEffect(() => {
-        if (panorama.isActive) {
-            gsap.to(controls.current.target, {
-                duration: .6,
-                x: panorama.cameraTarget[0],
-                y: panorama.cameraTarget[1],
-                z: panorama.cameraTarget[2],
-            });
-            gsap.to(controls.current, {
-                duration: .6,
-                minDistance: panorama.cameraDistance
-            });
+        if (panorama.isActive) { 
+            controls.current.target.set(0, 100, 0)
+            controls.current.minDistance = 0.1;
             gsap.to(camera.position, {
                 duration: .6,
                 x: panorama.cameraPosition[0],
@@ -64,14 +56,14 @@ export default function Controls() {
                 z: panorama.cameraPosition[2]
             });
         }
-    }, [panorama, camera.position]) 
+    }, [panorama, camera.position])
 
     return (
         <OrbitControls
             ref={controls}
             args={[camera, domElement]}
-            minPolarAngle={panorama.isActive ? Math.PI / 3.2 : -Math.PI / 2}
-            maxPolarAngle={panorama.isActive ? Math.PI / 1.58 : Math.PI / 2.1}
+            minPolarAngle={panorama.isActive ? Math.PI / 2.7 : -Math.PI / 2}
+            maxPolarAngle={panorama.isActive ? Math.PI / 1.65 : Math.PI / 2.1}
             zoomSpeed={3}
             rotateSpeed={-0.3}
             autoRotate={false}

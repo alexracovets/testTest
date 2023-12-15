@@ -7,7 +7,7 @@ const statePanorama = createSlice({
         isLoad: false,
         cameraTarget: [0, 100, 0],
         cameraDistance: 0.1,
-        cameraPosition: [180, 320, 40],
+        cameraPosition: [0.097, 99.987, 0.017],
         panoramCurrent: []
     },
     reducers: {
