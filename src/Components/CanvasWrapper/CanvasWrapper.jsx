@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { Canvas } from "@react-three/fiber";
 
 import BuildingNew from "./Models/Building/BuildingNew";
@@ -12,7 +11,6 @@ CanvasWrapper.propTypes = {
 };
 
 export default function CanvasWrapper({ setLoad }) {
-    const isPanorama = useSelector((state) => state.statePanorama.isActive);
 
     return (
         <Canvas
