@@ -4,7 +4,7 @@ const stateCamera = createSlice({
     name: 'camera',
     initialState: {
         default: {
-            position: [-62.15, 76.75, 170],
+            position: [-70.863, 63.667, 128.967],
             target: [10, 0, 0],
             minDistance: 120
         },

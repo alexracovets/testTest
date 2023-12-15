@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
-import {  useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
@@ -46,7 +46,7 @@ export default function Controls() {
     }, [cameraParameter, camera.position, isAnnotation, dispatch])
 
     useEffect(() => {
-        if (panorama.isActive) { 
+        if (panorama.isActive) {
             controls.current.target.set(0, 100, 0)
             controls.current.minDistance = 0.1;
             gsap.to(camera.position, {
@@ -57,6 +57,10 @@ export default function Controls() {
             });
         }
     }, [panorama, camera.position])
+
+    useFrame(() => {
+        console.log(camera.position)
+    })
 
     return (
         <OrbitControls
@@ -71,7 +75,7 @@ export default function Controls() {
             enableZoom={true}
             enablePan={true}
             target={[10, 0, 0]}
-            maxDistance={panorama.isActive ? 0 : 200}
+            maxDistance={panorama.isActive ? 0 : 165}
             minDistance={120}
         />
     )
