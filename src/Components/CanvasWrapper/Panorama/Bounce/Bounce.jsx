@@ -27,7 +27,7 @@ export default function Bounce({ item, setMaterial }) {
             z: 1
         },
         position: {
-            y: 40
+            y: 30
         }
     })
 
@@ -54,7 +54,7 @@ export default function Bounce({ item, setMaterial }) {
     }
 
     useEffect(() => {
-        isDown ? animation(isDown, 40, [1, 1, 1]) : animation(isDown, 0, [3, .1, 3]);
+        isDown ? animation(isDown, 30, [1, 1, 1]) : animation(isDown, 0, [3, .1, 3]);
     }, [isDown]);
 
     const teleport = (event, id, camera) => {
@@ -84,10 +84,10 @@ export default function Bounce({ item, setMaterial }) {
             <Sphere args={[3, 60, 60]} position={[0, renderParameters.position.y, 0]} scale={[renderParameters.scale.x, renderParameters.scale.y, renderParameters.scale.z]} >
                 <meshMatcapMaterial matcap={texture} />
             </Sphere>
-            <Torus args={[10, 1, 60, 60]} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+            <Torus args={[10, 0.5, 60, 60]} position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
                 <meshMatcapMaterial matcap={texture2} />
             </Torus>
-            <Cylinder args={[10, 10, 40, 10, 10, false]} position={[0, 20, 0]}>
+            <Cylinder args={[10, 10, 30, 10, 10, false]} position={[0, 15, 0]}>
                 <meshMatcapMaterial visible={false} />
             </Cylinder>
         </group>
