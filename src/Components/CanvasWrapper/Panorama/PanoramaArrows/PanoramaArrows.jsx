@@ -19,7 +19,7 @@ PanoramaArrows.propTypes = {
     setMaterial: PropTypes.func
 };
 
-export default function PanoramaArrows({ item, isShow, setMaterial }) {
+export default function PanoramaArrows({ item, setMaterial }) {
     const [texture] = useLoader(THREE.TextureLoader, [matcapYellow]);
     const [isActive, setIsActive] = useState(false);
     const [isAnimate, setIsAnimate] = useState(false);
@@ -75,7 +75,7 @@ export default function PanoramaArrows({ item, isShow, setMaterial }) {
             <Arrow position={[animParameters.translate, 0, 0]} texture={texture} opacity={animParameters.opacity} />
             <ArrowsTrans position={[animParameters.translate < -5 ? -5 : animParameters.translate, 0, 0]} texture={texture} opacity={animParameters.opacity} />
             <ArrowsTrans position={[animParameters.translate < -2 ? 0 : animParameters.translate, 0, 0]} texture={texture} opacity={animParameters.opacity} />
-            {/* <Plane
+            <Plane
                 args={[17, 9]}
                 position={[5, 0, 0]}
                 rotation={[-Math.PI / 2, 0, 0]}
@@ -83,7 +83,7 @@ export default function PanoramaArrows({ item, isShow, setMaterial }) {
                 onPointerLeave={() => setIsActive(false)}
                 onPointerMove={() => setIsActive(true)}
                 onClick={(event) => teleport(event, item.to, item.camera)}
-            /> */}
+            />
         </group>
     );
 } 
