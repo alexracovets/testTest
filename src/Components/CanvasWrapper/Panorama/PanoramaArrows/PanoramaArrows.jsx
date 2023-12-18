@@ -42,7 +42,7 @@ export default function PanoramaArrows({ item, setMaterial }) {
     };
 
     const animation1 = (isAnimate) => {
-        const tl = gsap.timeline({ 
+        const tl = gsap.timeline({
             onUpdate: () => setAnimParameters({ ...animParameters }),
             onComplete: () => setIsAnimate(animParameters.translate === -10 ? true : false)
         })
@@ -55,7 +55,8 @@ export default function PanoramaArrows({ item, setMaterial }) {
                 })
                 .to(animParameters, {
                     duration: isAnimate ? 0 : 1,
-                    translate: isAnimate ? 2 : -10
+                    translate: isAnimate ? 2 : -10,
+                    ease: "power1.out",
                 });
         }
 
@@ -68,7 +69,7 @@ export default function PanoramaArrows({ item, setMaterial }) {
     useEffect(() => {
         animation1(isAnimate);
     }, [isAnimate]);
-    
+
     return (
         <group position={item.position} rotation={item.rotation} scale={[2, 2, 2]}>
             <Arrow position={[animParameters.translate, 0, 0]} texture={texture} opacity={animParameters.opacity} />
