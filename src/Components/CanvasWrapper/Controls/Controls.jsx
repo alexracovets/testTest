@@ -56,11 +56,7 @@ export default function Controls() {
                 z: panorama.cameraPosition[2]
             });
         }
-    }, [panorama, camera.position])
-
-    useFrame(() => {
-        console.log(camera.position)
-    })
+    }, [panorama, camera.position]) 
 
     return (
         <OrbitControls

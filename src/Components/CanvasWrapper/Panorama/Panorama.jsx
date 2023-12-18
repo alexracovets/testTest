@@ -45,11 +45,11 @@ export default function Panorama() {
                     {
                         panoram.isShow &&
                         <>
-                            {panoram.interactive.arrow.map((item, index) => <Bounce key={index} item={item} isShow={panoram.isShow} setMaterial={setMaterial} />)}
+                            {panoram.interactive.arrow.map((item, index) => <PanoramaArrows key={index} item={item} isShow={panoram.isShow} setMaterial={setMaterial} />)}
+                            {panoram.interactive.bounce && panoram.interactive.bounce.map((item, index) => <Bounce key={index} item={item} isShow={panoram.isShow} setMaterial={setMaterial} />)}
                             {panoram.interactive.mask.map((item, index) => <MaskSphere key={index} id={panoram.id + 1} texture={textureLoader.load(item.image)} args={item.args} />)}
                         </>
                     }
-
                 </group>
             })
         }

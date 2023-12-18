@@ -17,17 +17,19 @@ const stateAnnotations = createSlice({
                         interactive: {
                             arrow: [
                                 {
-                                    to: 2,
-                                    position: [-80, 30, -190],
-                                    rotation: [0, -1.04, 0],
-                                    camera: [0.098, 100, -0.014]
-                                },
-                                {
                                     to: 3,
                                     position: [-110, 30, 0],
                                     rotation: [0, 0.04, 0],
                                     camera: [-0.062, 99.996, 0.078]
                                 }
+                            ],
+                            bounce: [
+                                {
+                                    to: 2,
+                                    position: [-80, 30, -190],
+                                    rotation: [0, -1.04, 0],
+                                    camera: [0.098, 100, -0.014]
+                                },
                             ],
                             mask: []
                         },
