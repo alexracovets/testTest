@@ -30,7 +30,7 @@ export default function AnnotationPopUp() {
                     <RxCross2 />
                 </button>
                 <h3> {t(`annotation.${state.content}.title`)} </h3>
-                <p> {t(`annotation.${state.content}.tag`)} </p>
+                {/* <p> {t(`annotation.${state.content}.tag`)} </p> */}
                 <p className={s.location}> {t(`annotation.${state.content}.location`)} </p>
                 <img className={s.image} src={`/img/annotation/${state.content}.jpg`} />
                 <button type='button' onClick={() => openPanorama()}>

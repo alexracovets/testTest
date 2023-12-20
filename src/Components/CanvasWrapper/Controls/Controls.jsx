@@ -62,7 +62,7 @@ export default function Controls() {
         <OrbitControls
             ref={controls}
             args={[camera, domElement]}
-            minPolarAngle={panorama.isActive ? Math.PI / 2.7 : -Math.PI / 2}
+            minPolarAngle={panorama.isActive ? Math.PI / 2.6 : -Math.PI / 2}
             maxPolarAngle={panorama.isActive ? Math.PI / 1.65 : Math.PI / 2.1}
             zoomSpeed={3}
             rotateSpeed={-0.3}

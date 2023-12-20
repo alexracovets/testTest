@@ -50,6 +50,7 @@ export default function PanoramaArrows({ item, setMaterial }) {
         if (animParameters.opacity === 0 || animParameters.opacity === 1) {
             tl
                 .to(animParameters, {
+                    delay: .2,
                     duration: .2,
                     opacity: !isAnimate ? 1 : 0
                 })

@@ -1,4 +1,4 @@
-import { useGLTF, Circle } from "@react-three/drei";
+import { useGLTF, Circle, Sphere } from "@react-three/drei";
 import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -44,7 +44,7 @@ export default function BuildingNew({ setLoad }) {
 
     return (
         <>
-            <group scale={0.01} visible={!isPanorama} rotation={[-0.015, 0, 0.005]}>
+            <group scale={0.01} visible={!isPanorama} rotation={[-0.01, 0, 0.006]}>
                 <group scale={100}>
                     <mesh geometry={nodes.Cube002_Material001_0.geometry} material={materials['Material.001']} />
                     <mesh geometry={nodes.Cube002_Material001_0_1.geometry} material={materials['Material.001']} />
@@ -72,9 +72,11 @@ export default function BuildingNew({ setLoad }) {
                     <mesh geometry={nodes.Cube002_Material001_0_23.geometry} material={materials['Material.001']} />
                 </group>
             </group>
-            <color attach="background" args={['#D0F5F7']} visible={!isPanorama} />
-            <fog attach="fog" args={["#D0F5F7", 340, !isPanorama ? 350 : 0]} visible={!isPanorama} />
-            <Circle args={[800, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} material={material} visible={!isPanorama} />
+            {/* {!isPanorama ? <color attach="background" args={['#D0F5F7']} /> : null} */}
+            <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.45, 0]} material={material} visible={!isPanorama} />
+            <Sphere args={[300, 100]} visible={!isPanorama}>
+                <meshStandardMaterial color={'#D0F5F7'} side={THREE.DoubleSide} />
+            </Sphere>
         </>
     );
 }
