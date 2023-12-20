@@ -11,7 +11,6 @@ CanvasWrapper.propTypes = {
 };
 
 export default function CanvasWrapper({ setLoad }) {
-
     return (
         <Canvas
             dpr={window.devicePixelRatio}
