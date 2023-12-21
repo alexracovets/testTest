@@ -7,7 +7,7 @@ const statePanorama = createSlice({
         isLoad: false,
         cameraTarget: [0, 100, 0],
         cameraDistance: 0.1,
-        cameraPosition: [0.097, 99.987, 0.017],
+        cameraPosition: [0, 100, 0],
         cameraRotation: [],
         panoramCurrent: []
     },
@@ -22,7 +22,6 @@ const statePanorama = createSlice({
             state.isLoad = action.payload;
         },
         setCameraPosition: (state, action) => {
-            console.log('action: '+ action.payload )
             state.cameraPosition = action.payload;
         },
     }

@@ -22,7 +22,12 @@ const stateCamera = createSlice({
             state.position = state.default.position;
             state.target = state.default.target;
             state.isAnimation = true;
-        }
+        },
+        setPosition: (state, action) => {
+            const position = action.payload;
+            state.position = position;
+            state.isAnimation = true;
+        },
     }
 });
 

@@ -73,7 +73,7 @@ export default function BuildingNew({ setLoad }) {
                 </group>
             </group>
             {/* {!isPanorama ? <color attach="background" args={['#D0F5F7']} /> : null} */}
-            <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.45, 0]} material={material} visible={!isPanorama} />
+            <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.45, 0]} material={material} visible={!isPanorama}/>
             <Sphere args={[300, 100]} visible={!isPanorama}>
                 <meshStandardMaterial color={'#D0F5F7'} side={THREE.DoubleSide} />
             </Sphere>

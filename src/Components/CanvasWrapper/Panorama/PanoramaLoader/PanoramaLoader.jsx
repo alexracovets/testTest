@@ -5,7 +5,7 @@ import logoUa from '/img/logo/logo_ua.svg';
 import s from './PanoramaLoader.module.scss';
 
 export default function PanoramaLoader() {
-    const [isActive, setActive] = useState(false);
+    const [isActive, setActive] = useState();
     const panorama = useSelector((state) => state.statePanorama);
 
     useEffect(() => {
