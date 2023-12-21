@@ -1,62 +1,56 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-import { setActiveAnimation } from '../../../store/reducers/stateCamera';
-
 export default function Controls() {
     const controls = useRef();
-    const dispatch = useDispatch();
     const { camera, gl: { domElement } } = useThree();
     const cameraParameter = useSelector((state) => state.stateCamera);
     const isAnnotation = useSelector((state) => state.stateAnnotationsPopUp.isActive);
     const panorama = useSelector((state) => state.statePanorama);
 
-    useEffect(() => {
-        if (cameraParameter.isAnimation) {
-            const minDistance = isAnnotation ? 0 : cameraParameter.default.minDistance;
-            gsap.to(controls.current.target, {
-                duration: 1.2,
-                x: cameraParameter.target[0],
-                y: cameraParameter.target[1],
-                z: cameraParameter.target[2],
-                ease: "expoScale(0.5,7,none)",
-            });
-            gsap.to(controls.current, {
-                duration: 1.2,
-                minDistance: minDistance,
-                ease: "expoScale(0.5,7,none)",
-            });
-            gsap.to(camera.position, {
-                duration: 1.2,
-                x: cameraParameter.position[0],
-                y: cameraParameter.position[1],
-                z: cameraParameter.position[2],
-                ease: "expoScale(0.5,7,none)",
-                onComplete: () => {
-                    controls.current.enabled = true;
-                    controls.current.update();
-                    dispatch(setActiveAnimation(false));
-                }
-            });
-        }
+    const animationCamera = (cameraParameter, camera, isAnnotation) => {
+        gsap.to(controls.current.target, {
+            duration: 1,
+            x: cameraParameter.target[0],
+            y: cameraParameter.target[1],
+            z: cameraParameter.target[2],
+            ease: "expoScale(0.5,7,none)",
+        });
+        gsap.to(controls.current, {
+            duration: 1,
+            minDistance: isAnnotation ? 0 : cameraParameter.default.minDistance,
+            ease: "expoScale(0.5,7,none)",
+        });
+        gsap.to(camera.position, {
+            duration: 1,
+            x: cameraParameter.position[0],
+            y: cameraParameter.position[1],
+            z: cameraParameter.position[2],
+            ease: "expoScale(0.5,7,none)"
+        });
+    }
 
-    }, [cameraParameter, camera.position, isAnnotation, dispatch])
+    const animationCameraPanorama = (camera, panorama) => {
+        controls.current.target.set(0, 100, 0)
+        controls.current.minDistance = 0.1;
+        gsap.to(camera.position, {
+            duration: .6,
+            x: panorama.cameraPosition[0],
+            y: panorama.cameraPosition[1],
+            z: panorama.cameraPosition[2],
+        });
+    }
 
     useEffect(() => {
-        if (panorama.isActive) {
-            controls.current.target.set(0, 100, 0)
-            controls.current.minDistance = 0.1;
-            gsap.to(camera.position, {
-                duration: .6,
-                x: panorama.cameraPosition[0],
-                y: panorama.cameraPosition[1],
-                z: panorama.cameraPosition[2]
-            });
-        }
-    }, [panorama, camera.position]) 
+        panorama.isActive ? animationCameraPanorama(camera, panorama) : animationCamera(cameraParameter, camera, isAnnotation);
+    }, [cameraParameter, camera, panorama, isAnnotation])
+
+    useFrame(() => {
+        // console.log(camera.position)
+    })
 
     return (
         <OrbitControls
@@ -70,7 +64,6 @@ export default function Controls() {
             autoRotateSpeed={0.5}
             enableZoom={true}
             enablePan={true}
-            target={[10, 0, 0]}
             maxDistance={panorama.isActive ? 0 : 165}
             minDistance={120}
         />

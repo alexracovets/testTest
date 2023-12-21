@@ -15,7 +15,6 @@ import { setCameraPosition } from '../../../../store/reducers/statePanorama';
 
 PanoramaArrows.propTypes = {
     item: PropTypes.object,
-    isShow: PropTypes.bool,
     setMaterial: PropTypes.func
 };
 
@@ -31,6 +30,7 @@ export default function PanoramaArrows({ item, setMaterial }) {
 
     const teleport = (event, id, camera) => {
         event.stopPropagation();
+        console.log(typeof camera)
         dispatch(setCameraPosition(camera));
         setMaterial((prevMaterial) => {
             return prevMaterial.map((item) => {

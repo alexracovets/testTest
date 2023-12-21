@@ -10,7 +10,6 @@ const stateCamera = createSlice({
         },
         position: [-62.15, 76.75, 170],
         target: [0, 0, 0],
-        isAnimation: false,
     },
     reducers: {
         setTarget: (state, action) => {
@@ -18,9 +17,6 @@ const stateCamera = createSlice({
             state.target = target;
             state.position = position;
             state.isAnimation = true;
-        },
-        setActiveAnimation: (state, action) => {
-            state.isAnimation = action.payload;
         },
         setDefault: (state) => {
             state.position = state.default.position;
@@ -30,6 +26,6 @@ const stateCamera = createSlice({
     }
 });
 
-export const { setTarget, setActiveAnimation, setDefault } = stateCamera.actions;
+export const { setTarget, setDefault } = stateCamera.actions;
 
 export default stateCamera.reducer;

@@ -12,7 +12,7 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/1/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [0.052, 100.021, 0.082],
                         isShow: true,
                         interactive: {
                             arrow: [
@@ -24,43 +24,41 @@ const stateAnnotations = createSlice({
                                 }
                             ],
                             bounce: [
-                                {
-                                    to: 2,
-                                    position: [-80, 30, -190],
-                                    rotation: [0, -1.04, 0],
-                                    camera: [0.098, 100, -0.014]
-                                },
+                                // {
+                                //     to: 2,
+                                //     position: [-80, 30, -190],
+                                //     rotation: [0, -1.04, 0],
+                                //     camera: [0.098, 100, -0.014]
+                                // },
                             ],
                             mask: []
                         },
                         id: 1
                     },
-                    {
-                        current: 'panoram/1/2.jpg',
-                        cameraPosition: [0, 0, 0],
-                        isShow: false,
-                        interactive: {
-                            arrow: [
-                                {
-                                    to: 1,
-                                    position: [135, 40, 67],
-                                    rotation: [0, 2.6, 0],
-                                    camera: [-0.02, 100.01, -0.097]
-                                },
-                                {
-                                    to: 3,
-                                    position: [65, 40, 100],
-                                    rotation: [0, 2.2, 0],
-                                    camera: [0.08, 99.991, 0.059]
-                                }
-                            ],
-                            mask: []
-                        },
-                        id: 2
-                    },
+                    // {
+                    //     current: 'panoram/1/2.jpg', 
+                    //     isShow: false,
+                    //     interactive: {
+                    //         arrow: [
+                    //             {
+                    //                 to: 1,
+                    //                 position: [135, 40, 67],
+                    //                 rotation: [0, 2.6, 0],
+                    //                 camera: [-0.02, 100.01, -0.097]
+                    //             },
+                    //             {
+                    //                 to: 3,
+                    //                 position: [65, 40, 100],
+                    //                 rotation: [0, 2.2, 0],
+                    //                 camera: [0.08, 99.991, 0.059]
+                    //             }
+                    //         ],
+                    //         mask: []
+                    //     },
+                    //     id: 2
+                    // },
                     {
                         current: 'panoram/1/3.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
@@ -70,12 +68,12 @@ const stateAnnotations = createSlice({
                                     rotation: [0, 1.1, 0],
                                     camera: [-0.098, 99.995, -0.016]
                                 },
-                                {
-                                    to: 2,
-                                    position: [105, 40, 66],
-                                    rotation: [0, 2.6, 0],
-                                    camera: [0.079, 99.997, 0.060]
-                                }
+                                // {
+                                //     to: 2,
+                                //     position: [105, 40, 66],
+                                //     rotation: [0, 2.6, 0],
+                                //     camera: [0.079, 99.997, 0.060]
+                                // }
                             ],
                             mask: []
                         },
@@ -91,15 +89,15 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/2/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [-0.091, 100.001, 0.041],
                         isShow: true,
                         interactive: {
                             arrow: [
                                 {
                                     to: 2,
-                                    position: [10, 40, 110],
-                                    rotation: [0, 1.7, 0],
-                                    camera: [0.01, 99.983, -0.098]
+                                    position: [0, 40, -100],
+                                    rotation: [0, -1.6, 0],
+                                    camera: [0.006, 99.991, 0.099]
                                 }
                             ],
                             mask: []
@@ -108,15 +106,14 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/2/2.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
                                     to: 1,
-                                    position: [0, 40, -100],
-                                    rotation: [0, -1.6, 0],
-                                    camera: [0.006, 99.991, 0.099]
+                                    position: [10, 40, 110],
+                                    rotation: [0, 1.7, 0],
+                                    camera: [0.01, 99.983, -0.098]
                                 }
                             ],
                             mask: []
@@ -130,6 +127,75 @@ const stateAnnotations = createSlice({
                 position: [-52, -0.2, 46],
                 cameraPosition: [-11, 32, 53],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
+                panoram: [
+                    {
+                        current: 'panoram/3/1.jpg',
+                        startCamera: [-0.098, 100.003, -0.020],
+                        isShow: true,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 2,
+                                    position: [164, 40, 8],
+                                    rotation: [0, 2.87, 0],
+                                    camera: [-0.087, 100.0002, -0.049]
+                                },
+                                {
+                                    to: 3,
+                                    position: [330, 40, 60],
+                                    rotation: [0, 2.52, 0],
+                                    camera: [0.071, 100.009, 0.069]
+                                }
+                            ],
+                            mask: []
+                        },
+                        id: 1
+                    },
+                    {
+                        current: 'panoram/3/2.jpg',
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [-130, 40, -5],
+                                    rotation: [0, -0.05, 0],
+                                    camera: [0.095, 100.014, 0.028]
+                                },
+                                {
+                                    to: 3,
+                                    position: [127, 40, 16],
+                                    rotation: [0, 3, 0],
+                                    camera: [0.08, 100.011, 0.059]
+                                }
+                            ],
+                            mask: []
+                        },
+                        id: 2
+                    },
+                    {
+                        current: 'panoram/3/3.jpg',
+                        isShow: false,
+                        interactive: {
+                            arrow: [
+                                {
+                                    to: 1,
+                                    position: [222, 47, 0],
+                                    rotation: [0, 3.08, -0.18],
+                                    camera: [0.095, 100.014, 0.028]
+                                },
+                                {
+                                    to: 2,
+                                    position: [125, 40, -3],
+                                    rotation: [0, -3.07, 0],
+                                    camera: [0.097, 100.0123, 0.018]
+                                }
+                            ],
+                            mask: []
+                        },
+                        id: 3
+                    }
+                ],
                 id: 3
             },
             {
@@ -139,21 +205,21 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/4/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [-0.097, 100.0146, -0.021],
                         isShow: true,
                         interactive: {
                             arrow: [
                                 {
                                     to: 2,
-                                    position: [104, 40, -33],
-                                    rotation: [0, -2.9, 0],
-                                    camera: [-0.097, 99.986, 0.02]
+                                    position: [31, 30, 74],
+                                    rotation: [0, 1.99, 0],
+                                    camera: [0.097, 100.015, 0.015]
                                 },
                                 {
-                                    to: 4,
-                                    position: [185, 30, -30],
-                                    rotation: [0, -3.4, 0],
-                                    camera: [0.097, 99.999, -0.022]
+                                    to: 3,
+                                    position: [55, 30, -60],
+                                    rotation: [0, 3.89, 0],
+                                    camera: [0.086, 99.986, 0.048]
                                 }
                             ],
                             mask: []
@@ -162,27 +228,20 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/4/2.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
                                     to: 1,
-                                    position: [-94, 40, 15],
-                                    rotation: [0, 0.1, 0],
-                                    camera: [0.099, 99.99, -0.007]
+                                    position: [70, 30, -5],
+                                    rotation: [0, 3.18, 0],
+                                    camera: [0.079, 100.004, 0.061]
                                 },
                                 {
                                     to: 3,
-                                    position: [108, 30, -3],
-                                    rotation: [0, 3.1, 0],
-                                    camera: [0.035, 99.997, 0.093]
-                                },
-                                {
-                                    to: 4,
-                                    position: [66, 30, 50],
-                                    rotation: [0, 2.5, 0],
-                                    camera: [0.098, 100.005, 0.02]
+                                    position: [40, 30, 100],
+                                    rotation: [0, 1.9, 0],
+                                    camera: [0.097, 100.017, -0.012]
                                 }
                             ],
                             mask: []
@@ -191,27 +250,26 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/4/3.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
                                     to: 1,
-                                    position: [65, 30, 160],
-                                    rotation: [0, 2.1, 0],
-                                    camera: [0.096, 100.005, -0.025]
+                                    position: [80, 30, 43],
+                                    rotation: [0, 2.61, 0],
+                                    camera: [0.1, 99.996, -0.001]
                                 },
                                 {
                                     to: 2,
-                                    position: [32, 30, 91],
-                                    rotation: [0, 1.6, 0],
-                                    camera: [0.096, 100, -0.027]
+                                    position: [110, 30, -30],
+                                    rotation: [0, 3.46, 0],
+                                    camera: [0.097, 100.017, 0.018]
                                 },
                                 {
                                     to: 4,
-                                    position: [56, 30, 0],
-                                    rotation: [0, 3.2, 0],
-                                    camera: [0.098, 100.007, 0.018]
+                                    position: [-110, 30, 20],
+                                    rotation: [0, 0.21, 0],
+                                    camera: [0.092, 99.992, -0.039]
                                 }
                             ],
                             mask: []
@@ -220,27 +278,14 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/4/4.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
-                                    to: 1,
-                                    position: [62, 40, -120],
-                                    rotation: [0, -1.7, 0],
-                                    camera: [0.099, 99.99, -0.007]
-                                },
-                                {
-                                    to: 2,
-                                    position: [50, 30, -43],
-                                    rotation: [0, -2.5, 0],
-                                    camera: [0.095, 99.998, 0.028]
-                                },
-                                {
                                     to: 3,
-                                    position: [-8, 30, 62],
-                                    rotation: [0, 1.3, 0],
-                                    camera: [0.038, 100.004, 0.092]
+                                    position: [106, 40, -36],
+                                    rotation: [0, 3.44, 0],
+                                    camera: [-0.097, 100.006, -0.024]
                                 }
                             ],
                             mask: []
@@ -257,19 +302,21 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/5/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [-0.097, 100.021, -0.013],
                         isShow: true,
                         interactive: {
                             arrow: [
                                 {
                                     to: 2,
-                                    position: [90, 30, 20],
-                                    rotation: [0, -3.5, 0]
+                                    position: [110, 30, -12],
+                                    rotation: [0, 3.24, 0],
+                                    camera: [0.098, 99.998, 0.017]
                                 },
                                 {
                                     to: 3,
-                                    position: [161, 30, 48],
-                                    rotation: [0, 2.8, 0]
+                                    position: [210, 30, -28],
+                                    rotation: [0, 3.32, 0],
+                                    camera: [0.096, 100.004, 0.027]
                                 }
                             ],
                             mask: []
@@ -278,19 +325,20 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/5/2.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
                                     to: 1,
-                                    position: [-115, 30, -13],
-                                    rotation: [0, -0.2, 0]
+                                    position: [90, 30, 46],
+                                    rotation: [0, 2.88, 0],
+                                    camera: [0.096, 100.004, 0.027]
                                 },
                                 {
                                     to: 3,
-                                    position: [81, 30, 43],
-                                    rotation: [0, -3.2, 0]
+                                    position: [-120, 30, -8],
+                                    rotation: [0, -0.02, 0],
+                                    camera: [0.098, 99.994, 0.018]
                                 }
                             ],
                             mask: []
@@ -299,19 +347,20 @@ const stateAnnotations = createSlice({
                     },
                     {
                         current: 'panoram/5/3.jpg',
-                        cameraPosition: [0, 0, 0],
                         isShow: false,
                         interactive: {
                             arrow: [
                                 {
                                     to: 1,
-                                    position: [175, 30, -25],
-                                    rotation: [0, 3.4, 0]
+                                    position: [180, 30, 55],
+                                    rotation: [0, 2.98, 0],
+                                    camera: [0.091, 100.027, 0.032]
                                 },
                                 {
                                     to: 2,
-                                    position: [80, 30, -10],
-                                    rotation: [0, 3.1, 0]
+                                    position: [80, 30, 30],
+                                    rotation: [0, 2.82, 0],
+                                    camera: [-0.094, 99.993, -0.031]
                                 },
                             ],
                             mask: []
@@ -328,7 +377,7 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/6/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [-0.099, 100.010, -0.008],
                         isShow: true,
                         interactive: {
                             arrow: [],
@@ -346,7 +395,7 @@ const stateAnnotations = createSlice({
                 panoram: [
                     {
                         current: 'panoram/7/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [0.096, 100.017, 0.019],
                         isShow: true,
                         interactive: {
                             arrow: [],
@@ -359,12 +408,12 @@ const stateAnnotations = createSlice({
             },
             {
                 position: [-95, 7.6, 4],
-                cameraPosition: [-122.8, 42.7, 19.7],
+                cameraPosition: [-122.8, 42.7, 19.7], 
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
                     {
                         current: 'panoram/8/1.jpg',
-                        cameraPosition: [0, 0, 0],
+                        startCamera: [-0.097, 100, -0.022],
                         isShow: true,
                         interactive: {
                             arrow: [],
@@ -396,9 +445,11 @@ const stateAnnotations = createSlice({
     reducers: {
         changeActiveColors: (state, action) => {
             const { color, annotation } = action.payload;
+            console.log('color ' + annotation)
             annotation.forEach(element => {
                 const anno = state.annotation.find(item => item.id === element);
-                anno?.color.includes(color)
+                console.log('color ' + anno)
+                anno.color.includes(color)
                     ? anno.color = anno.color.filter(exist => exist !== color)
                     : anno.color.push(color)
             });

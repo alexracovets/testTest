@@ -15,7 +15,7 @@ export default function CanvasWrapper({ setLoad }) {
         <Canvas
             dpr={window.devicePixelRatio}
             gl={{ preserveDrawingBuffer: true }}
-            camera={{ position: [-62.15, 76.75, 170], fov: 90, near: 0.1, far: 1000 }}
+            camera={{ fov: 90, near: 0.1, far: 1000 }}
         >
             <ambientLight intensity={2} />
             <Controls />

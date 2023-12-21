@@ -21,7 +21,10 @@ export default function MenuBtn({ item }) {
     }
 
     return (
-        <button className={item.active ? s.btn : s.btn + ' ' + s.disabled} onClick={btnHandler} type='button'>
+        <button
+            className={item.active ? s.btn : s.btn + ' ' + s.disabled}
+            onClick={() => btnHandler(item)} type='button'
+        >
             <span className={s.text}> {t(`menu.${item.name}`)} </span>
             <span
                 className={s.image}
