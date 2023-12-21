@@ -79,7 +79,7 @@ export default function Bounce({ item, setMaterial }) {
             onPointerMove={() => setIsActive(true)}
             position={item.position}
             rotation={item.rotation}
-            onClick={(event) => teleport(event, item.to, item.camera)}
+            // onClick={(event) => teleport(event, item.to, item.camera)}
         >
             <Sphere args={[3, 60, 60]} position={[0, renderParameters.position.y, 0]} scale={[renderParameters.scale.x, renderParameters.scale.y, renderParameters.scale.z]} >
                 <meshMatcapMaterial matcap={texture} />
