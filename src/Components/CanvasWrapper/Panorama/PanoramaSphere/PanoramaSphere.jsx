@@ -28,7 +28,7 @@ export default function PanoramaSphere({ id, texture, isShow }) {
     }, [isShow])
 
     return (
-        <Sphere args={[500 - id, 60, 60]} scale={[1, 1, 1]} position={[0, 100, 0]}>
+        <Sphere args={[300 - id, 60, 60]} scale={[1, 1, 1]} position={[0, 100, 0]}>
             <meshStandardMaterial map={texture} side={THREE.BackSide} transparent opacity={animParam.opacity} />
         </Sphere>
     )

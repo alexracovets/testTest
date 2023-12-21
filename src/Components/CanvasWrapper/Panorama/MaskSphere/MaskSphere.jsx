@@ -41,7 +41,7 @@ export default function MaskSphere({ id, texture, args }) {
                 onPointerMove={() => setIsActive(true)}
                 visible={false}
             />
-            <Sphere args={[500 - id, 60, 60]} position={[0, 100, 0]}>
+            <Sphere args={[300 - id, 60, 60]} position={[0, 100, 0]}>
                 <meshStandardMaterial map={texture} side={THREE.BackSide} transparent opacity={animParam.opacity} />
             </Sphere>
         </>
