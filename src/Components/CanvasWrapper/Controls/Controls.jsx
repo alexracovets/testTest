@@ -64,6 +64,7 @@ export default function Controls() {
             autoRotateSpeed={0.5}
             enableZoom={true}
             enablePan={true}
+            target={[10, 0, 0]}
             maxDistance={panorama.isActive ? 0 : 165}
             minDistance={120}
         />

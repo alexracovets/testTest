@@ -35,28 +35,6 @@ const stateAnnotations = createSlice({
                         },
                         id: 1
                     },
-                    // {
-                    //     current: 'panoram/1/2.jpg', 
-                    //     isShow: false,
-                    //     interactive: {
-                    //         arrow: [
-                    //             {
-                    //                 to: 1,
-                    //                 position: [135, 40, 67],
-                    //                 rotation: [0, 2.6, 0],
-                    //                 camera: [-0.02, 100.01, -0.097]
-                    //             },
-                    //             {
-                    //                 to: 3,
-                    //                 position: [65, 40, 100],
-                    //                 rotation: [0, 2.2, 0],
-                    //                 camera: [0.08, 99.991, 0.059]
-                    //             }
-                    //         ],
-                    //         mask: []
-                    //     },
-                    //     id: 2
-                    // },
                     {
                         current: 'panoram/1/3.jpg',
                         isShow: false,
@@ -488,8 +466,7 @@ const stateAnnotations = createSlice({
             console.log('color ' + annotation)
             annotation.forEach(element => {
                 const anno = state.annotation.find(item => item.id === element);
-                console.log('color ' + anno)
-                anno.color.includes(color)
+                anno?.color.includes(color)
                     ? anno.color = anno.color.filter(exist => exist !== color)
                     : anno.color.push(color)
             });

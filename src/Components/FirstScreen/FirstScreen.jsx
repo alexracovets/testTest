@@ -8,6 +8,7 @@ import Menu from "../Menu/Menu";
 
 import s from './FirstScreen.module.scss';
 import PanoramaLoader from "../CanvasWrapper/Panorama/PanoramaLoader/PanoramaLoader";
+import PanoramPopUp from "./PanoramPopUp/PanoramPopUp";
 
 export default function FirstScreen() {
     const [isLoad, setLoad] = useState(true);
@@ -17,10 +18,11 @@ export default function FirstScreen() {
             <Menu />
             <div className={s.container}>
                 <CanvasWrapper setLoad={setLoad} />
-                <AnnotationPopUp />
-                <ClosePanorama />
                 {isLoad && <Loader />}
                 <PanoramaLoader />
+                <AnnotationPopUp />
+                <PanoramPopUp />
+                <ClosePanorama />
             </div>
         </section>
     )
