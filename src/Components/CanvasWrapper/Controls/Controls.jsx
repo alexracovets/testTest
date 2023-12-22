@@ -35,12 +35,13 @@ export default function Controls() {
 
     const animationCameraPanorama = (camera, panorama) => {
         controls.current.target.set(0, 100, 0)
-        controls.current.minDistance = 0.1;
+        controls.current.maxDistance = 100;
         gsap.to(camera.position, {
             duration: .6,
             x: panorama.cameraPosition[0],
             y: panorama.cameraPosition[1],
             z: panorama.cameraPosition[2],
+            onComplete: () => controls.current.maxDistance = 0.1
         });
     }
 

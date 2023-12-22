@@ -5,10 +5,12 @@ import { setActiveStatus, setIsLoad, setPanoram } from '../../../store/reducers/
 import { setDefault } from '../../../store/reducers/stateCamera';
 
 import s from './ClosePanorama.module.scss';
+import { useEffect, useState } from "react";
 
 export default function ClosePanorama() {
     const dispatch = useDispatch();
-    const isPanorama = useSelector((state) => state.statePanorama.isActive);
+    const isPanorama = useSelector((state) => state.statePanorama);
+    const [isActive, setIsActive] = useState(false);
 
     const closePanorama = () => {
         dispatch(setActiveStatus(false));
@@ -16,9 +18,19 @@ export default function ClosePanorama() {
         dispatch(setIsLoad(false));
         dispatch(setPanoram([]))
     }
+
+    useEffect(() => {
+        if (isPanorama.isActive && isPanorama.isLoad) {
+            const timeoutId = setTimeout(() => setIsActive(true), 2500);
+            return () => clearTimeout(timeoutId);
+        } else {
+            setIsActive(false)
+        }
+    }, [isPanorama])
+
     return (
         <>
-            <button className={isPanorama ? s.cross + ' ' + s.active : s.cross} type="button" onClick={() => closePanorama()}>
+            <button className={isActive ? s.cross + ' ' + s.active : s.cross} type="button" onClick={() => closePanorama()}>
                 <RxCross2 />
             </button>
         </>

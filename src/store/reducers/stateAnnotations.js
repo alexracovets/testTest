@@ -6,7 +6,7 @@ const stateAnnotations = createSlice({
         // Вивід анотацій
         annotation: [
             {
-                position: [-100, 0, 58],
+                position: [-100, 1, 58],
                 cameraPosition: [-84, 32, 82],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -61,7 +61,7 @@ const stateAnnotations = createSlice({
                 id: 1
             },
             {
-                position: [100, 13.3, 12],
+                position: [100, 15, 12],
                 cameraPosition: [98.7, 50, -24.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -102,7 +102,7 @@ const stateAnnotations = createSlice({
                 id: 2
             },
             {
-                position: [-52, -0.2, 46],
+                position: [-52, 1, 46],
                 cameraPosition: [-11, 32, 53],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -177,7 +177,7 @@ const stateAnnotations = createSlice({
                 id: 3
             },
             {
-                position: [-85, 9.7, 43],
+                position: [-85, 10.5, 43],
                 cameraPosition: [-79, 38.7, 59.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -284,7 +284,7 @@ const stateAnnotations = createSlice({
                 id: 4
             },
             {
-                position: [-70, 10.2, 43],
+                position: [-70, 11.3, 43],
                 cameraPosition: [-52.8, 37.4, 55.8],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -369,7 +369,7 @@ const stateAnnotations = createSlice({
                 id: 5
             },
             {
-                position: [93, 13.3, 30],
+                position: [93, 15, 30],
                 cameraPosition: [74.4, 41.8, 19.6],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -397,7 +397,7 @@ const stateAnnotations = createSlice({
                 id: 6
             },
             {
-                position: [-70, 0.7, 61],
+                position: [-70, 1.5, 61],
                 cameraPosition: [-49, 26.8, 77.5],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -425,7 +425,7 @@ const stateAnnotations = createSlice({
                 id: 7
             },
             {
-                position: [-95, 7.6, 4],
+                position: [-92, 0, 23],
                 cameraPosition: [-122.8, 42.7, 19.7],
                 color: ["#5E8BFF", "#EEBE40", "#D73B3B", "#9F5804"],
                 panoram: [
@@ -463,7 +463,6 @@ const stateAnnotations = createSlice({
     reducers: {
         changeActiveColors: (state, action) => {
             const { color, annotation } = action.payload;
-            console.log('color ' + annotation)
             annotation.forEach(element => {
                 const anno = state.annotation.find(item => item.id === element);
                 anno?.color.includes(color)

@@ -5,6 +5,7 @@ const stateAnnotationsPopUp = createSlice({
     initialState: {
         content: "1",
         isActive: false,
+        isPanoramMask: false
     },
     reducers: {
         changeActiveStatus: (state, action) => {
@@ -12,10 +13,13 @@ const stateAnnotationsPopUp = createSlice({
         },
         setPopUpContent: (state, action) => {
             state.content = action.payload;
+        },
+        setPanoramMask: (state, action) => {
+            state.isPanoramMask = action.payload;
         }
     }
 });
 
-export const { changeActiveStatus, setPopUpContent } = stateAnnotationsPopUp.actions;
+export const { changeActiveStatus, setPopUpContent, setPanoramMask } = stateAnnotationsPopUp.actions;
 
 export default stateAnnotationsPopUp.reducer;
