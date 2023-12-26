@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Canvas } from "@react-three/fiber";
 
 import BuildingNew from "./Models/Building/BuildingNew";
@@ -6,11 +5,7 @@ import Controls from './Controls/Controls';
 import Annotations from './Annotations/Annotations';
 import Panorama from './Panorama/Panorama';
 
-CanvasWrapper.propTypes = {
-    setLoad: PropTypes.func,
-};
-
-export default function CanvasWrapper({ setLoad }) {
+export default function CanvasWrapper() {
     return (
         <Canvas
             dpr={window.devicePixelRatio}
@@ -20,7 +15,7 @@ export default function CanvasWrapper({ setLoad }) {
             <ambientLight intensity={2} />
             <Controls />
             <Annotations />
-            <BuildingNew setLoad={setLoad} />
+            <BuildingNew />
             <Panorama />
         </Canvas>
     )

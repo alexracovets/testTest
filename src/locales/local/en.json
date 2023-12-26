@@ -62,5 +62,7 @@
     "toBackPopUp": {
         "isHere": "Are you here?",
         "yes": "yes"
-    }
+    },
+    "load_panoram": "Downloading a virtual tour...",
+    "load_report": "Loading Eco Report..."
 }

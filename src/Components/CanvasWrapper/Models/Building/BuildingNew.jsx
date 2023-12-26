@@ -1,18 +1,15 @@
 import { useGLTF, Circle, Sphere } from "@react-three/drei";
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
-BuildingNew.propTypes = {
-    setLoad: PropTypes.func,
-};
+import { setLoaderStatus } from '../../../../store/reducers/stateLoader';
 
-
-export default function BuildingNew({ setLoad }) {
+export default function BuildingNew() {
     const { nodes, materials } = useGLTF('models/building1/scene.gltf');
     const isPanorama = useSelector((state) => state.statePanorama.isActive);
     const [material, setMaterial] = useState();
+    const dispatch = useDispatch();
 
     const textureLoader = new THREE.TextureLoader();
 
@@ -39,8 +36,10 @@ export default function BuildingNew({ setLoad }) {
     }, [])
 
     useEffect(() => {
-        nodes && materials && material && setLoad(false);
-    }, [nodes, materials, material, setLoad])
+        if (nodes && materials && material) {
+            dispatch(setLoaderStatus(true))
+        }
+    }, [nodes, materials, material])
 
     return (
         <>
@@ -72,7 +71,7 @@ export default function BuildingNew({ setLoad }) {
                     <mesh geometry={nodes.Cube002_Material001_0_23.geometry} material={materials['Material.001']} />
                 </group>
             </group>
-            <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.46, 0]} material={material} visible={!isPanorama}/>
+            <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.46, 0]} material={material} visible={!isPanorama} />
             <Sphere args={[300, 100]} visible={!isPanorama}>
                 <meshStandardMaterial color={'#D0F5F7'} side={THREE.DoubleSide} />
             </Sphere>

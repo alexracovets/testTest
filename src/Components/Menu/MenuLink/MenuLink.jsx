@@ -1,27 +1,40 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
-import { changeActiveStatus } from '../../../store/reducers/stateMenu.js';
-import { changeActiveColors } from '../../../store/reducers/stateAnnotations.js';
+import { setLink } from '../../../store/reducers/stateMenuIFrame';
+import { setLoaderMainStatus } from '../../../store/reducers/stateLoaderMain';
 
 import s from '../Menu.module.scss';
+import { useEffect, useState } from 'react';
 
 MenuLink.propTypes = {
     item: PropTypes.object,
 };
 
 export default function MenuLink({ item }) {
+    const currentLink = useSelector((state) => state.stateMenuIFrame.link);
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const btnHandler = () => {
-        dispatch(changeActiveStatus(item.id));
-        dispatch(changeActiveColors(item))
+        if (isDisabled) {
+            dispatch(setLink(null));
+            setIsDisabled(false);
+            dispatch(setLoaderMainStatus(false));
+        } else {
+            dispatch(setLink(item.link));
+            dispatch(setLoaderMainStatus(true));
+        }
     }
 
+    useEffect(() => {
+        currentLink === item.link ? setIsDisabled(true) : setIsDisabled(false);
+    }, [currentLink, item.link]);
+
     return (
-        <button className={item.active ? s.btn : s.btn + ' ' + s.disabled} onClick={btnHandler} type='button' disabled>
+        <button className={isDisabled ? s.btn + ' ' + s.disabled : s.btn} onClick={btnHandler} type='button'>
             <span className={s.text}> {t(`menu.${item.name}`)} </span>
             <span
                 className={s.image}

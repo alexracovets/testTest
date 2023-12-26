@@ -31,12 +31,14 @@ export default function Music() {
     // завантаження аудіо
     useEffect(() => {
         if (isActive) {
+            audio && audio.pause();
+            setAudio(null)
             const audioObject = new Audio(`./music/${i18n.language}/${content}.mp3`);
             audioObject && setAudio(audioObject);
         } else {
             setAudio(null);
         }
-    }, [content, i18n, isActive]);
+    }, [content, i18n.language, isActive]);
 
     // пауза при натискані на ПопАп
     useEffect(() => {
