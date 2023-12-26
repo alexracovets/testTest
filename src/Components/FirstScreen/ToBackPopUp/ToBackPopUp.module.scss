@@ -1,0 +1,51 @@
+@import '../../../global/variable.scss';
+
+.popUp {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    background-color: transparent;
+    transition: all ease-in-out 0ms;
+
+
+    &.active {
+        transition: all ease-in-out 300ms;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        opacity: 1;
+    }
+
+    .title {
+        font-size: 5rem;
+        color: $base-yellow;
+        font-family: $font-rounds;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .timer {
+        font-size: 8rem;
+        color: $base-red;
+        font-family: $font-rounds;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .button {
+        font-size: 4rem;
+        padding: 1rem 2rem;
+        font-family: $font-rounds;
+        border-radius: 1rem;
+        border: none;
+        background-color: $base-yellow;
+        margin-top: 2rem;
+    }
+}

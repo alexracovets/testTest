@@ -14,14 +14,14 @@ export default function ClosePanorama() {
 
     const closePanorama = () => {
         dispatch(setActiveStatus(false));
-        dispatch(setDefault());
         dispatch(setIsLoad(false));
-        dispatch(setPanoram([]))
+        dispatch(setPanoram([]));
+        dispatch(setDefault());
     }
 
     useEffect(() => {
         if (panorama.isActive && panorama.isLoad) {
-            const timeoutId = setTimeout(() => setIsActive(true), 2500);
+            const timeoutId = setTimeout(() => setIsActive(true), panorama.delayStart);
             return () => clearTimeout(timeoutId);
         } else setIsActive(false);
     }, [panorama])

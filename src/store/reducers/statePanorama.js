@@ -5,6 +5,7 @@ const statePanorama = createSlice({
     initialState: {
         isActive: false,
         isLoad: false,
+        delayStart: 2500,
         cameraTarget: [0, 100, 0],
         cameraDistance: 0.1,
         cameraPosition: [0, 100, 0],

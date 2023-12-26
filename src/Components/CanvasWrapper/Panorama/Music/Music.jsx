@@ -19,7 +19,7 @@ export default function Music() {
     //відображення компоненту
     useEffect(() => {
         if (panorama.isActive && panorama.isLoad) {
-            const timeoutId = setTimeout(() => setIsActive(true), 2500);
+            const timeoutId = setTimeout(() => setIsActive(true), panorama.delayStart);
             return () => clearTimeout(timeoutId);
         } else {
             setIsActive(false);
