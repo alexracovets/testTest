@@ -37,6 +37,7 @@ export default function ToBackPopUp() {
 
     // встановлення часу
     const initTime = useCallback(() => {
+        console.log(time)
         const intervalId = setTimeout(() => setTime(time - 1), 1000);
         return time > 0 ? () => clearTimeout(intervalId) : toDefault();
     }, [time, toDefault]);
@@ -59,7 +60,11 @@ export default function ToBackPopUp() {
 
     // відлік/початковий час таймеру та повернення на головну при відсутності дій
     useEffect(() => {
-        return timerStart ? initTime() : setTime(timeInitial);
+        if (timerStart) {
+            return initTime()
+        } else {
+            setTime(timeInitial);
+        }
     }, [timerStart, time, initTime, timeInitial]);
 
     //оновлення таймера при дії користувача
