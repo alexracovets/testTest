@@ -12,23 +12,15 @@ export default function PanoramaLoader() {
     const panorama = useSelector((state) => state.statePanorama);
     const loaderStatus = useSelector((state) => state.stateLoaderMain.isActive);
 
+    //вкл/викл лоудера панорами/звіту
     useEffect(() => {
-        if (panorama.isActive && !panorama.isLoad) {
+        if ((panorama.isActive && !panorama.isLoad) || (!panorama.isActive && loaderStatus)) {
             setActive(true)
         } else {
-            const timeoutId = setTimeout(() => setActive(false), 2000);
+            const timeoutId = setTimeout(() => setActive(false), panorama.delayStart);
             return () => clearTimeout(timeoutId);
         }
-    }, [panorama])
-
-    useEffect(() => {
-        if (loaderStatus) {
-            setActive(true)
-        } else {
-            const timeoutId = setTimeout(() => setActive(false), 2000);
-            return () => clearTimeout(timeoutId);
-        }
-    }, [loaderStatus])
+    }, [panorama, loaderStatus])
 
     return (
         <div className={isActive ? s.panorama__load + ' ' + s.active : s.panorama__load}>
