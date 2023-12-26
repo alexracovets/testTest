@@ -72,7 +72,6 @@ export default function BuildingNew({ setLoad }) {
                     <mesh geometry={nodes.Cube002_Material001_0_23.geometry} material={materials['Material.001']} />
                 </group>
             </group>
-            {/* {!isPanorama ? <color attach="background" args={['#D0F5F7']} /> : null} */}
             <Circle args={[320, 10]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.46, 0]} material={material} visible={!isPanorama}/>
             <Sphere args={[300, 100]} visible={!isPanorama}>
                 <meshStandardMaterial color={'#D0F5F7'} side={THREE.DoubleSide} />
