@@ -19,7 +19,7 @@ export default function Menu() {
     const renderBtn = () => stateMenu.btns.map((button) => <MenuBtn item={button} key={button.id} />);
     const renderLink = () => stateMenu.links.map((button) => <MenuLink item={button} key={button.id} />);
 
-    const closePanorama = () => {
+    const toDefault = () => {
         annotationPopUp(dispatch, false);
         dispatch(setActiveStatus(false));
         dispatch(setIsLoad(false));
@@ -29,7 +29,7 @@ export default function Menu() {
 
     return (
         <aside className={s.menu__wrapper}>
-            <button className={s.menu} onClick={() => closePanorama()}>{t('menu.menu')}</button>
+            <button className={s.menu} onClick={() => toDefault()}>{t('menu.menu')}</button>
             <span className={s.line}></span>
             {renderBtn()}
             {renderLink()}

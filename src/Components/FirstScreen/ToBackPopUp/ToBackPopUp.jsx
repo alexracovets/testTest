@@ -1,6 +1,10 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+
+import { setActiveStatus, setIsLoad, setPanoram } from '../../../store/reducers/statePanorama';
+import { setDefault } from '../../../store/reducers/stateCamera';
+import annotationPopUp from '../../../static/annotationPopUp';
 
 import s from './ToBackPopUp.module.scss';
 
@@ -9,6 +13,7 @@ export default function ToBackPopUp() {
     const timeShow = useSelector((state) => state.stateToBackPopUp.showTime);
     const panoram = useSelector((state) => state.statePanorama);
     const { t } = useTranslation();
+    const dispatch = useDispatch();
     const [time, setTime] = useState(timeInitial);
     const [isActive, setIsActive] = useState(true);
     const [timerStart, setTimerStart] = useState(false)
@@ -19,6 +24,15 @@ export default function ToBackPopUp() {
         const seconds = timeInSeconds % 60;
         return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
+
+    //до початкової позиції сайту
+    const toDefault = () => {
+        annotationPopUp(dispatch, false);
+        dispatch(setActiveStatus(false));
+        dispatch(setIsLoad(false));
+        dispatch(setPanoram([]));
+        dispatch(setDefault());
+    }
 
     // початок дії таймеру, з затримкою
     useEffect(() => {
@@ -33,18 +47,13 @@ export default function ToBackPopUp() {
         setIsActive(time <= timeShow ? true : false);
     }, [time, timeShow])
 
-    // відлік/початковий чай таймеру
+    // відлік/початковий час таймеру та повернення на головну при відсутності дій
     useEffect(() => {
         if (timerStart) {
-            if (time > 0) {
-                const intervalId = setInterval(() => {
-                    setTime(time - 1);
-                }, 1000);
-                return () => clearInterval(intervalId);
-            }
-
+            const intervalId = setInterval(() => setTime(time - 1), 1000);
+            return () => time > 0 ? clearInterval(intervalId) : toDefault();
         } else {
-            setTime(timeInitial)
+            return setTime(timeInitial)
         }
 
     }, [timerStart, time, timeInitial]);
