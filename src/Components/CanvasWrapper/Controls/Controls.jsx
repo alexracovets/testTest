@@ -1,17 +1,23 @@
 import { useSelector } from 'react-redux';
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 export default function Controls() {
-    const controls = useRef();
-    const { camera, gl: { domElement } } = useThree();
+    const annotation = useSelector((state) => state.stateAnnotationsPopUp);
     const cameraParameter = useSelector((state) => state.stateCamera);
-    const isAnnotation = useSelector((state) => state.stateAnnotationsPopUp.isActive);
     const panorama = useSelector((state) => state.statePanorama);
+    const [lastInteractionTime, setLastInteractionTime] = useState(Date.now());
+    const { camera, gl: { domElement } } = useThree();
+    const [isRotate, setIsRotate] = useState(false);
+    const controls = useRef();
 
-    const animationCamera = (cameraParameter, camera, isAnnotation) => {
+    // оновлення останього часу руху користувача
+    const logInteraction = () => setLastInteractionTime(Date.now());
+
+    // анімація переміщення по 3д мапі
+    const animationCamera = (cameraParameter, camera, annotation) => {
         gsap.to(controls.current.target, {
             duration: 1,
             x: cameraParameter.target[0],
@@ -21,7 +27,7 @@ export default function Controls() {
         });
         gsap.to(controls.current, {
             duration: 1,
-            minDistance: isAnnotation ? 0 : cameraParameter.default.minDistance,
+            minDistance: annotation ? 0 : cameraParameter.default.minDistance,
             ease: "expoScale(0.5,7,none)",
         });
         gsap.to(camera.position, {
@@ -33,6 +39,7 @@ export default function Controls() {
         });
     }
 
+    //анімація переміщення по панорамі
     const animationCameraPanorama = (camera, panorama) => {
         controls.current.target.set(0, 100, 0)
         controls.current.maxDistance = 100;
@@ -45,13 +52,26 @@ export default function Controls() {
         });
     }
 
+    //анімації камери
     useEffect(() => {
-        panorama.isActive ? animationCameraPanorama(camera, panorama) : animationCamera(cameraParameter, camera, isAnnotation);
-    }, [cameraParameter, camera, panorama, isAnnotation])
+        panorama.isActive ? animationCameraPanorama(camera, panorama) : animationCamera(cameraParameter, camera, annotation.isActive);
+    }, [cameraParameter, camera, panorama, annotation]);
+
+    // встановлення події на оновлення часу користувача
+    useEffect(() => {
+        domElement.addEventListener('pointerdown', logInteraction);
+        domElement.addEventListener('mousemove', logInteraction);
+        return () => {
+            domElement.removeEventListener('pointerdown', logInteraction);
+            domElement.removeEventListener('mousemove', logInteraction);
+        }
+    }, [domElement]);
 
     useFrame(() => {
-        // console.log(camera.position)
-    })
+        //перевірка часу останьої події користувача
+        const timeSinceInteraction = Date.now() - lastInteractionTime;
+        !panorama.isActive && !annotation.isActive && setIsRotate(timeSinceInteraction > 5000 ? true : false)
+    });
 
     return (
         <OrbitControls
@@ -60,8 +80,8 @@ export default function Controls() {
             minPolarAngle={panorama.isActive ? Math.PI / 2.6 : -Math.PI / 2}
             maxPolarAngle={panorama.isActive ? Math.PI / 1.65 : Math.PI / 2.1}
             zoomSpeed={3}
-            rotateSpeed={-0.3}
-            autoRotate={false}
+            rotateSpeed={panorama.isActive ? -0.3 : 0.3}
+            autoRotate={isRotate}
             autoRotateSpeed={0.5}
             enableZoom={true}
             enablePan={true}

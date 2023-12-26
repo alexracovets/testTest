@@ -16,8 +16,8 @@
 
 
     &.active {
-        background-color: rgba(0, 0, 0, 0.2);
-        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
         opacity: 1;
     }
 
@@ -28,14 +28,14 @@
         max-width: 43.75rem;
         border-radius: 2rem;
         outline: 0.25rem solid rgba(0, 0, 0, 0.2);
-        padding: 2rem;
+        padding: 2rem 4rem;
         position: relative;
 
         .cross {
             position: absolute;
             z-index: 10;
-            top: 0.5rem;
-            right: 0.5rem;
+            top: 1rem;
+            right: 1rem;
             height: 2.75rem;
             width: 2.75rem;
             display: flex;

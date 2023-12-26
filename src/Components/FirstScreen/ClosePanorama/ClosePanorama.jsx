@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function ClosePanorama() {
     const dispatch = useDispatch();
-    const isPanorama = useSelector((state) => state.statePanorama);
+    const panorama = useSelector((state) => state.statePanorama);
     const [isActive, setIsActive] = useState(false);
 
     const closePanorama = () => {
@@ -20,13 +20,11 @@ export default function ClosePanorama() {
     }
 
     useEffect(() => {
-        if (isPanorama.isActive && isPanorama.isLoad) {
+        if (panorama.isActive && panorama.isLoad) {
             const timeoutId = setTimeout(() => setIsActive(true), 2500);
             return () => clearTimeout(timeoutId);
-        } else {
-            setIsActive(false)
-        }
-    }, [isPanorama])
+        } else setIsActive(false);
+    }, [panorama])
 
     return (
         <>
