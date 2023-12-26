@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import musicOn from '/img/music/off.svg';
@@ -16,6 +16,13 @@ export default function Music() {
     const [audio, setAudio] = useState(null);
     const { i18n } = useTranslation();
 
+    const getAudioObject = useCallback(() => {
+        audio && audio.pause();
+        setAudio(null);
+        const audioObject = new Audio(`./music/${i18n.language}/${content}.mp3`);
+        audioObject && setAudio(audioObject);
+    }, [i18n.language, content]);
+
     //відображення компоненту
     useEffect(() => {
         if (panorama.isActive && panorama.isLoad) {
@@ -30,15 +37,8 @@ export default function Music() {
 
     // завантаження аудіо
     useEffect(() => {
-        if (isActive) {
-            audio && audio.pause();
-            setAudio(null)
-            const audioObject = new Audio(`./music/${i18n.language}/${content}.mp3`);
-            audioObject && setAudio(audioObject);
-        } else {
-            setAudio(null);
-        }
-    }, [content, i18n.language, isActive]);
+        isActive ? getAudioObject() : setAudio(null);
+    }, [getAudioObject, isActive]);
 
     // пауза при натискані на ПопАп
     useEffect(() => {
