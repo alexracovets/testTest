@@ -37,7 +37,6 @@ export default function ToBackPopUp() {
 
     // встановлення часу
     const initTime = useCallback(() => {
-        console.log(time)
         const intervalId = setTimeout(() => setTime(time - 1), 1000);
         return time > 0 ? () => clearTimeout(intervalId) : toDefault();
     }, [time, toDefault]);

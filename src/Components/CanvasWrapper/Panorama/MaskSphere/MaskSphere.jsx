@@ -16,28 +16,24 @@ MaskSphere.propTypes = {
 
 export default function MaskSphere({ id, texture, args }) {
     const dispatch = useDispatch();
+    const [opacity, setOpacity] = useState(0);
     const [isActive, setIsActive] = useState(false);
-    const [animParam, setAnimParam] = useState({
-        opacity: 0
-    })
-
-    const openPopUp = () => {
-        dispatch(setPanoramMask(true))
-    }
-    
-    const animOpcity = (opacity) => {
-        gsap.to(animParam, {
-            duration: .3,
-            opacity: opacity,
-            ease: "sine.inOut",
-            onUpdate: () => setAnimParam({ ...animParam })
-        })
-    }
+    const openPopUp = () => dispatch(setPanoramMask(true));
 
     useEffect(() => {
+        const animParam = { opacity: isActive ? 0 : 1 };
+        const animOpacity = (opacity) => {
+            gsap.to(animParam, {
+                duration: .3,
+                opacity: opacity,
+                ease: "sine.inOut",
+                onUpdate: () => setOpacity(animParam.opacity)
+            });
+        };
+
         cursor(isActive);
-        isActive ? animOpcity(1) : animOpcity(0);
-    }, [isActive])
+        isActive ? animOpacity(1) : animOpacity(0);
+    }, [isActive]);
 
     return (
         <>
@@ -51,7 +47,7 @@ export default function MaskSphere({ id, texture, args }) {
                 visible={false}
             />
             <Sphere args={[340 - id, 60, 20]} position={[0, 100, 0]}>
-                <meshStandardMaterial map={texture} side={THREE.BackSide} transparent opacity={animParam.opacity} />
+                <meshStandardMaterial map={texture} side={THREE.BackSide} transparent opacity={opacity} />
             </Sphere>
         </>
 
