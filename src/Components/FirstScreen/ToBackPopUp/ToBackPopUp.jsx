@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import { setActiveStatus, setIsLoad, setPanoram } from '../../../store/reducers/statePanorama';
 import { setDefault } from '../../../store/reducers/stateCamera';
@@ -16,7 +16,7 @@ export default function ToBackPopUp() {
     const dispatch = useDispatch();
     const [time, setTime] = useState(timeInitial);
     const [isActive, setIsActive] = useState(true);
-    const [timerStart, setTimerStart] = useState(false)
+    const [timerStart, setTimerStart] = useState(false);
 
     //форматування часу
     const formatTime = (timeInSeconds) => {
@@ -26,21 +26,31 @@ export default function ToBackPopUp() {
     };
 
     //до початкової позиції сайту
-    const toDefault = () => {
+    const toDefault = useCallback(() => {
         annotationPopUp(dispatch, false);
         dispatch(setActiveStatus(false));
         dispatch(setIsLoad(false));
         dispatch(setPanoram([]));
         dispatch(setDefault());
-    }
+        setTime(timeInitial);
+    }, [dispatch, timeInitial]);
+
+    // встановлення часу
+    const initTime = useCallback(() => {
+        const intervalId = setTimeout(() => setTime(time - 1), 1000);
+        return time > 0 ? () => clearTimeout(intervalId) : toDefault();
+    }, [time, toDefault]);
 
     // початок дії таймеру, з затримкою
     useEffect(() => {
         if (panoram.isLoad) {
             const timeoutId = setTimeout(() => setTimerStart(true), panoram.delayStart);
             return () => clearTimeout(timeoutId);
-        } else setTimerStart(false);
-    }, [panoram])
+        } else {
+            setTimerStart(false);
+            setTime(timeInitial);
+        }
+    }, [panoram, timeInitial])
 
     //відображення таймеру
     useEffect(() => {
@@ -49,14 +59,8 @@ export default function ToBackPopUp() {
 
     // відлік/початковий час таймеру та повернення на головну при відсутності дій
     useEffect(() => {
-        if (timerStart) {
-            const intervalId = setInterval(() => setTime(time - 1), 1000);
-            return () => time > 0 ? clearInterval(intervalId) : toDefault();
-        } else {
-            return setTime(timeInitial)
-        }
-
-    }, [timerStart, time, timeInitial]);
+        return timerStart ? initTime() : setTime(timeInitial);
+    }, [timerStart, time, initTime, timeInitial]);
 
     //оновлення таймера при дії користувача
     useEffect(() => {
@@ -71,7 +75,7 @@ export default function ToBackPopUp() {
             };
         }
 
-    }, [timeInitial, isActive, panoram]);
+    }, [isActive, panoram, timeInitial]);
 
     return (
         <aside className={isActive ? s.popUp + ' ' + s.active : s.popUp}>
