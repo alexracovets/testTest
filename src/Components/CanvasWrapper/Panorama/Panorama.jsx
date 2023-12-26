@@ -8,6 +8,7 @@ import PanoramaArrows from './PanoramaArrows/PanoramaArrows';
 import PanoramaSphere from './PanoramaSphere/PanoramaSphere';
 import { setIsLoad } from '../../../store/reducers/statePanorama';
 import Bounce from './Bounce/Bounce';
+import PanoramaInfos from './PanoramaInfos/PanoramaInfos';
 
 export default function Panorama() {
     const dispatch = useDispatch();
@@ -48,6 +49,8 @@ export default function Panorama() {
                             {panoram.interactive.arrow.map((item, index) => <PanoramaArrows key={index} item={item} isShow={panoram.isShow} setMaterial={setMaterial} />)}
                             {panoram.interactive.bounce && panoram.interactive.bounce.map((item, index) => <Bounce key={index} item={item} isShow={panoram.isShow} setMaterial={setMaterial} />)}
                             {panoram.interactive.mask.map((item, index) => <MaskSphere key={index} id={panoram.id + 1} texture={textureLoader.load(item.image)} args={item.args} />)}
+                            {panoram.interactive.info?.map((item, index) => <PanoramaInfos key={index} item={item} />)}
+                            <PanoramaInfos />
                         </>
                     }
                 </group>
