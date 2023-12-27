@@ -31,7 +31,6 @@ export default function PanoramPopUp() {
         setTextLength(t(`annotation.${state.content}.tag.length`))
     }, [state.content, t])
 
-    console.log(textLength)
     return (
         <aside className={isActive ? s.popUp + ' ' + s.active : s.popUp}>
             <div className={s.wrapper}>
