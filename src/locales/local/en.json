@@ -12,51 +12,72 @@
         "report": "Eco Report"
     },
     "annotation": {
-        "button": "Відкрити",
+        "button": "Open Link",
         "1": {
-            "title": "Велопарковка",
-            "tag": "Велосипед — абсолютно екологічний вид транспорту і для його популяризації серед співробітників та співробітниць облаштована велопарковка на території офісу підтримки. Вибір засобу пересування на користь велосипеда знижує обсяги шкідливих викидів у повітря та зменшує негативний вплив на зміну клімату.",
-            "location": "Чек-пойнт офісу 1"
+            "title": "Bicycle parking",
+            "tag": [
+                "A bicycle is an absolutely environmentally friendly transport mode and to promote it among employees, a bicycle parking lot has been arranged on the territory of the Support Office. Choosing a bicycle as a means of transportation reduces the amount of harmful emissions into the air and decreases the negative impact on climate change."
+            ],
+            "location": "Office Checkpoint  1"
         },
         "2": {
-            "title": "Преси для макулатури",
-            "tag": "Використана та зібрана для переробки макулатура пресується в компактні тюки, внаслідок чого її об’єм зменшується в рази. Це дозволяє звільнити складські площі. Вторсировину в такому вигляді зручніше перевозити для подальшої переробки та повторного використання.",
-            "location": "ВДО (кінець другої черги РЦВ)"
+            "title": "Waste paper presses",
+            "tag": [
+                "The used paper collected for recycling is pressed into compact bales, significantly reducing its volume. This allows for the freeing up warehouse space.",
+                "Transporting the secondary raw material in this compacted form is more convenient for further processing and reuse."
+            ],
+            "location": "VDO (DCV end of the second line)"
         },
         "3": {
-            "title": "Вулична спортзона",
-            "tag": "Заняття спортом на вулиці сприяють енергоощадженню, оскільки тут використовується природне освітлення та вентиляція на відміну від штучних ресурсів в закритому приміщенні. А це означає менше споживання енергоресурсів та позитивний вплив на довкілля.",
-            "location": "Вхід через фудкорт 2, офісу 1"
+            "title": "Outdoor sports area",
+            "tag": [
+                "Outdoor sports contribute to energy saving, as it uses natural light and ventilation, as opposed to artificial resources indoors. This means less energy consumption and a positive impact on the environment."
+            ],
+            "location": "Entrance through food court 2, office 1"
         },
         "4": {
-            "title": "Контейнери для сортування сміття",
-            "tag": "Встановлений контейнер для сортування сміття (метал, пластик, папір). Сортування допомагає перетворювати сміття на ресурс: робити з нього нові речі чи енергію, та зменшувати кількість сміттєзвалищ, а відповідно захищати екосистеми від руйнування.",
-            "location": "Фудкорт офісу 1"
+            "title": "Containers for waste sorting",
+            "tag": [
+                "A container for sorting waste (metal, plastic, paper) is installed. Sorting helps to turn waste into a resource: to make new things or energy from it, and to reduce the number of landfills, and thus protect ecosystems from destruction."
+            ],
+            "location": "Food court of office 1"
         },
         "5": {
-            "title": "Контейнери для сортування сміття",
-            "tag": "Встановлений контейнер для сортування сміття (метал, пластик, папір). Сортування допомагає перетворювати сміття на ресурс: робити з нього нові речі чи енергію, та зменшувати кількість сміттєзвалищ, а відповідно захищати екосистеми від руйнування.",
-            "location": "Фудкорт 2 офісу 1"
+            "title": "Containers for waste sorting",
+            "tag": [
+                "A container for sorting waste (metal, plastic, paper) is installed. Sorting helps to turn waste into a resource: to make new things or energy from it, and to reduce the number of landfills, and thus protect ecosystems from destruction."
+            ],
+            "location": "Food court 2 of office 1"
         },
         "6": {
-            "title": "Контейнери для сортування сміття",
-            "tag": "Встановлений контейнер для сортування сміття (метал, пластик, папір). Сортування допомагає перетворювати сміття на ресурс: робити з нього нові речі чи енергію, та зменшувати кількість сміттєзвалищ, а відповідно захищати екосистеми від руйнування.",
-            "location": "Фудкорт офісу 2"
+            "title": "Containers for waste sorting",
+            "tag": [
+                "A container for sorting waste (metal, plastic, paper) is installed. Sorting helps to turn waste into a resource: to make new things or energy from it, and to reduce the number of landfills, and thus protect ecosystems from destruction."
+            ],
+            "location": "Food court of office 2"
         },
         "7": {
-            "title": "Бокси для збору використаних батарейок та одноразових електронних сигарет",
-            "tag": "Використані батарейки містять у собі низку небезпечних токсичних складових, як свинець, марганець, літій і цинк. Якщо їх викидати на звичайні звалища, а не переробляти, то токсини починають отруювати воду і ґрунт, а також те, що росте поблизу. Не меншою загрозою для довкілля є й одноразові електронні сигарети, споживання яких різко зросло в останні роки й тим самим загострило проблему їх утилізації. Кидаючи до спеціальних боксів використанні батарейки, ти дбаєш про безпечну утилізацію. А відпрацьовані акумулятори електронних сигарет стають сировиною для повторного використання.",
-            "location": "Рецепція"
+            "title": "Boxes for collecting used batteries and disposable e-cigarettes",
+            "tag": [
+                "Used batteries contain a number of dangerous toxic components, such as lead, manganese, lithium, and zinc. If they are dumped in conventional landfills instead of being recycled, the toxins begin to poison water and soil, as well as plants growing nearby.",
+                "Disposable e-cigarettes pose no less of a threat to the environment, as their consumption has increased dramatically in recent years, exacerbating the problem of their disposal.",
+                "By throwing used batteries into special boxes, you take care of their safe disposal. And used e-cigarette batteries become raw materials for reuse."
+            ],
+            "location": "Reception"
         },
         "8": {
-            "title": "Вулична сітка для збору пластикових пляшок",
-            "tag": "У вуличну сітку можна вкидати використані пластикові пляшки, попередньо очищені та зім'яті до плаского стану або скручені, щоб займати менше місця. Зібраний пластик відправляють на переробку для повторного використання.",
-            "location": "Поряд з 1 рампою РЦВ"
+            "title": "Outdoor grid for collecting plastic bottles",
+            "tag": [
+                "Used plastic bottles, pre-cleaned and crumpled to a flat state or twisted to take up less space, can be thrown into the outdoor grid. The collected plastic is sent for recycling for reuse."
+            ],
+            "location": "Next to the 1st ramp of the DCV"
         },
         "9": {
-            "title": "Вулична станція для сортування Avrora Green",
-            "tag": "Для більш зручної утилізації відходів на вулиці також встановлені контейнери для сортування сміття (метал, скло, пластик, папір та інші відходи). Сортування допомагає перетворювати сміття на ресурс: робити з нього речі чи енергію, та зменшувати кількість сміттєзвалищ, а відповідно захищати екосистеми від руйнування.",
-            "location": "2 адмінкорпус"
+            "title": "Avrora Green sorting street station",
+            "tag": [
+                "For more convenient waste disposal, containers for sorting waste (metal, glass, plastic, paper and other waste) are also installed outdoors. Sorting helps to turn waste into a resource: to make things or energy from it, and to reduce the number of landfills, and thus protect ecosystems from destruction."
+            ],
+            "location": "2 administrative building"
         }
     },
     "toBackPopUp": {

@@ -12,7 +12,8 @@ export default function PanoramPopUp() {
     const dispatch = useDispatch();
     const [isActive, setIsActive] = useState(false);
     const state = useSelector((state) => state.stateAnnotationsPopUp);
-    const isPanorama = useSelector((state) => state.statePanorama.isActive)
+    const isPanorama = useSelector((state) => state.statePanorama.isActive);
+    const [textLength, setTextLength] = useState(0);
 
     const closePopUp = () => {
         dispatch(setPanoramMask(false))
@@ -26,6 +27,11 @@ export default function PanoramPopUp() {
         setIsActive(state.isPanoramMask)
     }, [state])
 
+    useEffect(() => {
+        setTextLength(t(`annotation.${state.content}.tag.length`))
+    }, [state.content, t])
+
+    console.log(textLength)
     return (
         <aside className={isActive ? s.popUp + ' ' + s.active : s.popUp}>
             <div className={s.wrapper}>
@@ -33,7 +39,12 @@ export default function PanoramPopUp() {
                     <RxCross2 />
                 </button>
                 <h4>{t(`annotation.${state.content}.title`)}</h4>
-                <p>{t(`annotation.${state.content}.tag`)}</p>
+                {
+                    Array.from({ length: textLength }, (_, index) => (
+                        <p key={index}>{t(`annotation.${state.content}.tag.${index}`)}</p>
+                    ))
+                }
+
             </div>
         </aside>
     )
