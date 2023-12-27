@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 
-import BuildingNew from "./Models/Building/BuildingNew";
-import Controls from './Controls/Controls';
 import Annotations from './Annotations/Annotations';
+import Building from "./Models/Building/Building";
+import Controls from './Controls/Controls';
 import Panorama from './Panorama/Panorama';
 
 export default function CanvasWrapper() {
@@ -15,7 +15,7 @@ export default function CanvasWrapper() {
             <ambientLight intensity={2} />
             <Controls />
             <Annotations />
-            <BuildingNew />
+            <Building />
             <Panorama />
         </Canvas>
     )
