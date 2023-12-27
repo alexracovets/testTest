@@ -14,8 +14,10 @@ body,
     user-select: none;
 }
 
-section {
-    padding: 1rem;
+@media (min-width: 1921px) {
+    html {
+        font-size: 0.897vw;
+    }
 }
 
 canvas {

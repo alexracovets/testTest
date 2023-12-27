@@ -16,6 +16,11 @@
     opacity: 0;
     transition: all ease-in-out 0ms;
 
+    @media (max-width:$mobile) {
+        top: 2rem;
+        right: 1.5rem;
+    }
+
     &.active {
         z-index: 10;
         opacity: 1;

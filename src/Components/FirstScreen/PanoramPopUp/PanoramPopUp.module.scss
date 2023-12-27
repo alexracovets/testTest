@@ -17,7 +17,7 @@
 
     &.active {
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 2;
+        z-index: 11;
         opacity: 1;
     }
 
@@ -30,6 +30,13 @@
         outline: 0.25rem solid rgba(0, 0, 0, 0.2);
         padding: 2rem 4rem;
         position: relative;
+
+        @media (max-width:$mobile) {
+            height: 100%;
+            width: 100%;
+            padding: 0.5rem;
+            padding-top: 5rem; 
+        }
 
         .cross {
             position: absolute;

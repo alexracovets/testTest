@@ -19,13 +19,13 @@ export default function FirstScreen() {
         <section className={s.first__screen}>
             <Menu />
             <div className={s.container}>
-                <CanvasWrapper/>
+                <CanvasWrapper />
                 <Loader />
                 <PanoramaLoader />
                 <AnnotationPopUp />
                 <PanoramPopUp />
                 <ToBackPopUp />
-                {/* <Music /> */}
+                <Music />
                 <IFrame />
                 <ClosePanorama />
             </div>

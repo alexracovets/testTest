@@ -29,6 +29,10 @@
         font-family: $font-rounds;
         text-transform: uppercase;
         text-align: center;
+
+        @media (max-width:$mobile) {
+            font-size: 3rem;
+        }
     }
 
     .timer {
@@ -37,6 +41,10 @@
         font-family: $font-rounds;
         text-transform: uppercase;
         text-align: center;
+
+        @media (max-width:$mobile) {
+            font-size: 5rem;
+        }
     }
 
     .button {
@@ -47,5 +55,9 @@
         border: none;
         background-color: $base-yellow;
         margin-top: 2rem;
+
+        @media (max-width:$mobile) {
+            font-size: 2rem;
+        }
     }
 }

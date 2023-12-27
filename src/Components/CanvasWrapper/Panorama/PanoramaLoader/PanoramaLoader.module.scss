@@ -43,6 +43,11 @@
             align-items: flex-end;
             font-family: $font-rubik;
             margin-top: 3rem;
+
+            @media (max-width:$mobile) {
+                font-size: 1rem;
+                text-align: center;
+            }
         }
     }
 }
