@@ -18,7 +18,6 @@ export default function MaskSphere({ id, texture, args }) {
     const dispatch = useDispatch();
     const [opacity, setOpacity] = useState(0);
     const [isActive, setIsActive] = useState(false);
-    const openPopUp = () => dispatch(setPanoramMask(true));
 
     useEffect(() => {
         const animParam = { opacity: isActive ? 0 : 1 };
@@ -43,7 +42,7 @@ export default function MaskSphere({ id, texture, args }) {
                 rotation={args.rotation}
                 onPointerLeave={() => setIsActive(false)}
                 onPointerMove={() => setIsActive(true)}
-                onClick={() => openPopUp()}
+                onClick={() => dispatch(setPanoramMask(true))}
                 visible={false}
             />
             <Sphere args={[340 - id, 60, 20]} position={[0, 100, 0]}>

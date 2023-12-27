@@ -55,7 +55,7 @@ export default function Controls() {
     //анімації камери
     useEffect(() => {
         panorama.isActive ? animationCameraPanorama(camera, panorama) : animationCamera(cameraParameter, camera, annotation.isActive);
-    }, [cameraParameter, camera, panorama, annotation]);
+    }, [cameraParameter, camera, panorama, annotation.isActive]);
 
     // встановлення події на оновлення часу користувача
     useEffect(() => {

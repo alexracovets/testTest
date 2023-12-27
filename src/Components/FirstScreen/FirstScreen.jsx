@@ -25,7 +25,7 @@ export default function FirstScreen() {
                 <AnnotationPopUp />
                 <PanoramPopUp />
                 <ToBackPopUp />
-                <Music />
+                {/* <Music /> */}
                 <IFrame />
                 <ClosePanorama />
             </div>

@@ -14,13 +14,22 @@ export default function PanoramaLoader() {
 
     //вкл/викл лоудера панорами/звіту
     useEffect(() => {
-        if ((panorama.isActive && !panorama.isLoad) || (!panorama.isActive && loaderStatus)) {
+        if (panorama.isActive && !panorama.isLoad) {
             setActive(true)
         } else {
-            const timeoutId = setTimeout(() => setActive(false), panorama.delayStart);
+            const timeoutId = setTimeout(() => setActive(false), 2000);
             return () => clearTimeout(timeoutId);
         }
-    }, [panorama, loaderStatus])
+    }, [panorama])
+
+    useEffect(() => {
+        if (loaderStatus) {
+            setActive(true)
+        } else {
+            const timeoutId = setTimeout(() => setActive(false), 2000);
+            return () => clearTimeout(timeoutId);
+        }
+    }, [loaderStatus])
 
     return (
         <div className={isActive ? s.panorama__load + ' ' + s.active : s.panorama__load}>
