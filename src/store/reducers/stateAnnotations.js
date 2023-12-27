@@ -191,7 +191,14 @@ const stateAnnotations = createSlice({
                                     camera: [0.071, 100.009, 0.069]
                                 }
                             ],
-                            mask: []
+                            mask: [],
+                            info: [
+                                {
+                                    position: [190, 100, 170],
+                                    rotation: [0, -0.96, 0],
+                                    scale: 8
+                                }
+                            ]
                         },
                         id: 1
                     },
@@ -213,7 +220,14 @@ const stateAnnotations = createSlice({
                                     camera: [0.08, 100.011, 0.059]
                                 }
                             ],
-                            mask: []
+                            mask: [],
+                            info: [
+                                {
+                                    position: [10, 92, 170],
+                                    rotation: [0, -1.63, 0],
+                                    scale: 8
+                                }
+                            ]
                         },
                         id: 2
                     },
