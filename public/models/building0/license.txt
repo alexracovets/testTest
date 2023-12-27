@@ -1,0 +1,11 @@
+Model Information:
+* title:	Avrora
+* source:	https://sketchfab.com/3d-models/avrora-b7739e1f499541f0b65d398e3ee47f7f
+* author:	SKEIRON (https://sketchfab.com/skeiron)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Avrora" (https://sketchfab.com/3d-models/avrora-b7739e1f499541f0b65d398e3ee47f7f) by SKEIRON (https://sketchfab.com/skeiron) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

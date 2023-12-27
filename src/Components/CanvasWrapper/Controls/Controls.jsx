@@ -18,6 +18,7 @@ export default function Controls() {
 
     // анімація переміщення по 3д мапі
     const animationCamera = (cameraParameter, camera, annotation) => {
+        console.log('1')
         gsap.to(controls.current.target, {
             duration: 1,
             x: cameraParameter.target[0],
@@ -27,7 +28,7 @@ export default function Controls() {
         });
         gsap.to(controls.current, {
             duration: 1,
-            minDistance: annotation ? 0 : cameraParameter.default.minDistance,
+            minDistance: annotation ? 0.1 : cameraParameter.default.minDistance,
             ease: "expoScale(0.5,7,none)",
         });
         gsap.to(camera.position, {
@@ -41,10 +42,11 @@ export default function Controls() {
 
     //анімація переміщення по панорамі
     const animationCameraPanorama = (camera, panorama) => {
+        console.log('2')
         controls.current.target.set(0, 100, 0)
         controls.current.maxDistance = 100;
         gsap.to(camera.position, {
-            duration: .6,
+            duration: 0,
             x: panorama.cameraPosition[0],
             y: panorama.cameraPosition[1],
             z: panorama.cameraPosition[2],
@@ -86,8 +88,8 @@ export default function Controls() {
             enableZoom={true}
             enablePan={true}
             target={[10, 0, 0]}
-            maxDistance={panorama.isActive ? 0 : 165}
-            minDistance={120}
+            maxDistance={panorama.isActive ? 0.2 : 165}
+            minDistance={panorama.isActive ? 0.1 : 120}
         />
     )
 }
