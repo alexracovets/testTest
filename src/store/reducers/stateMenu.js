@@ -9,51 +9,51 @@ const stateMenu = createSlice({
                 name: 'paper',
                 color: '#5E8BFF',
                 active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8],
+                annotation: [2, 4, 5, 6],
                 id: 1
             },
             // {
             //     name: 'glass',
             //     color: '#49AD0B',
             //     active: true,
-            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     annotation: [2, 4, 5, 6,],
             //     id: 2
             // },
             {
                 name: 'plastic',
                 color: '#EEBE40',
                 active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8],
+                annotation: [4, 5, 6, 8],
                 id: 3
             },
             {
                 name: 'metal',
                 color: '#D73B3B',
                 active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8],
+                annotation: [4, 5, 6],
                 id: 4
             },
             {
                 name: 'bio',
                 color: '#9F5804',
                 active: true,
-                annotation: [1, 2, 3, 4, 5, 6, 7, 8],
+                annotation: [4, 5, 6],
                 id: 5
             },
-            // {
-            //     name: 'other',
-            //     color: '#E2E2E2',
-            //     active: true,
-            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-            //     id: 6
-            // },
-            // {
-            //     name: 'eco',
-            //     color: '#B1B1B1',
-            //     active: true,
-            //     annotation: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-            //     id: 7
-            // }
+            {
+                name: 'other',
+                color: '#E2E2E2',
+                active: true,
+                annotation: [7],
+                id: 6
+            },
+            {
+                name: 'eco',
+                color: '#B1B1B1',
+                active: true,
+                annotation: [1, 3],
+                id: 7
+            }
 
         ],
         // Вивід кнопок(лінки)
