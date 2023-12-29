@@ -42,14 +42,14 @@ const stateMenu = createSlice({
             },
             {
                 name: 'other',
-                color: '#E2E2E2',
+                color: '#B1B1B1',
                 active: true,
                 annotation: [7],
                 id: 6
             },
             {
                 name: 'eco',
-                color: '#B1B1B1',
+                color: '#E2E2E2',
                 active: true,
                 annotation: [1, 3],
                 id: 7

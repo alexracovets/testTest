@@ -72,7 +72,9 @@ export default function Controls() {
     useFrame(() => {
         //перевірка часу останьої події користувача
         const timeSinceInteraction = Date.now() - lastInteractionTime;
-        !panorama.isActive && !annotation.isActive && setIsRotate(timeSinceInteraction > 5000 ? true : false) 
+        setIsRotate(timeSinceInteraction > 5000 ? true : false);
+
+        console.log(camera.position)
     });
 
     return (

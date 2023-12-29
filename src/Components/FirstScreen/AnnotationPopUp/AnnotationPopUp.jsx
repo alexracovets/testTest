@@ -33,7 +33,7 @@ export default function AnnotationPopUp() {
                 </button>
                 <h3> {t(`annotation.${state.content}.title`)} </h3>
                 <p className={s.location}> {t(`annotation.${state.content}.location`)} </p>
-                <img className={s.image} src={`/img/annotation/${state.content}.jpg`} />
+                <img className={s.image} src={`/img/annotation/${state.content}.jpg`} onClick={() => openPanorama()} />
                 <button type='button' onClick={() => openPanorama()}>
                     <span>Відкрити</span>
                     <SlArrowRight />

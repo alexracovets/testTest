@@ -23,22 +23,18 @@ export default function PanoramaInfos({ position, rotation, scale }) {
     }, [isActive])
 
     return (
-        <>
-            {
-                <group
-                    position={position}
-                    rotation={rotation}
-                    scale={[scale, scale, scale]}
-                >
-                    <Info />
-                    <Circle args={[1.5, 10]} position={[0, 0, 0]} rotation={[0, -Math.PI / 2, -Math.PI]}
-                        onPointerLeave={() => setIsActive(false)}
-                        onPointerMove={() => setIsActive(true)}
-                        onClick={() => dispatch(setPanoramMask(true))}
-                        visible={false}
-                    />
-                </group>
-            }
-        </>
+        <group
+            position={position}
+            rotation={rotation}
+            scale={[scale, scale, scale]}
+        >
+            <Info />
+            <Circle args={[1.5, 10]} position={[0, 0, 0]} rotation={[0, -Math.PI / 2, -Math.PI]}
+                onPointerLeave={() => setIsActive(false)}
+                onPointerMove={() => setIsActive(true)}
+                onClick={() => dispatch(setPanoramMask(true))}
+                visible={false}
+            />
+        </group>
     );
 } 
