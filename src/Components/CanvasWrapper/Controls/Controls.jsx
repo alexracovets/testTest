@@ -18,7 +18,6 @@ export default function Controls() {
 
     // анімація переміщення по 3д мапі
     const animationCamera = (cameraParameter, camera, annotation) => {
-        console.log('1')
         gsap.to(controls.current.target, {
             duration: 1,
             x: cameraParameter.target[0],
@@ -42,7 +41,6 @@ export default function Controls() {
 
     //анімація переміщення по панорамі
     const animationCameraPanorama = (camera, panorama) => {
-        console.log('2')
         controls.current.target.set(0, 100, 0)
         controls.current.maxDistance = 100;
         gsap.to(camera.position, {
@@ -73,8 +71,6 @@ export default function Controls() {
         //перевірка часу останьої події користувача
         const timeSinceInteraction = Date.now() - lastInteractionTime;
         setIsRotate(timeSinceInteraction > 5000 ? true : false);
-
-        console.log(camera.position)
     });
 
     return (

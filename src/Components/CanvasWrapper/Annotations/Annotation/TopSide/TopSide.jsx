@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 
 import Parts from './Parts/Parts';
 import Ring from './Ring/Ring';
-import Svg from './Svg/Svg';
+import SvgImage from './SvgImage/SvgImage';
 
 TopSide.propTypes = {
     colors: PropTypes.array,
@@ -54,7 +54,7 @@ export default function TopSide({ colors, thetaRing, radiusCircle, svgOpacity, h
             <group ref={groupInnerRef} rotation={[Math.PI / 2, 0, 0]}>
                 <Parts colors={colors} radius={radiusCircle} />
                 <Ring theta={thetaRing} />
-                <Svg colors={colors} opacity={svgOpacity} />
+                <SvgImage colors={colors} opacity={svgOpacity} />
             </group>
         </group>
     );
