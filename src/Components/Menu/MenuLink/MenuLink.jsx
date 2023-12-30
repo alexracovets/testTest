@@ -36,9 +36,11 @@ export default function MenuLink({ item }) {
     return (
         <button className={isDisabled ? s.btn + ' ' + s.disabled : s.btn} onClick={btnHandler} type='button'>
             <span className={s.text}> {t(`menu.${item.name}`)} </span>
-            <span
-                className={s.image}
-                style={{ backgroundImage: `url(./img/menu/${item.name}.svg)`, backgroundColor: `${item.color}` }}>
+            <span className={s.background} style={{ backgroundColor: `${item.color}` }}>
+                <span
+                    className={s.image}
+                    style={{ backgroundImage: `url(./img/menu/${item.name}.svg)` }}>
+                </span>
             </span>
         </button>
     )

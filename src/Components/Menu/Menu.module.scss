@@ -104,20 +104,31 @@
             }
         }
 
-        .image {
+        .background {
             width: 5rem;
             height: 100%;
             border-radius: 1rem;
             background-color: $base-white;
-            background-repeat: no-repeat;
-            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             @media (max-width:$mobile) {
                 width: 3rem;
                 height: 3rem;
 
             }
+
+            .image {
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.7;
+            }
         }
+
+
     }
 
     .swither {

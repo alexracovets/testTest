@@ -26,9 +26,11 @@ export default function MenuBtn({ item }) {
             onClick={() => btnHandler(item)} type='button'
         >
             <span className={s.text}> {t(`menu.${item.name}`)} </span>
-            <span
-                className={s.image}
-                style={{ backgroundImage: `url(./img/menu/${item.name}.svg)`, backgroundColor: `${item.color}` }}>
+            <span className={s.background} style={{ backgroundColor: `${item.color}` }}>
+                <span
+                    className={s.image}
+                    style={{ backgroundImage: `url(./img/menu/${item.name}.svg)` }}>
+                </span>
             </span>
         </button>
     )
