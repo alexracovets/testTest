@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useMemo } from "react";
+import { VRButton } from '@react-three/xr';
 import * as THREE from 'three';
 
 import Bounce from './Bounce/Bounce';
@@ -39,6 +40,7 @@ export default function Panorama() {
     }, [texturesLoaded, panorama.panoramCurrent, dispatch]);
 
     return <>
+   
         {
             panorama.isLoad && material.map((panoram) => {
                 return <group key={panoram.id}>
