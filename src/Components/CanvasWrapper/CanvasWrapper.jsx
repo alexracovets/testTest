@@ -16,7 +16,7 @@ export default function CanvasWrapper() {
                 camera={{ fov: 90, near: 0.1, far: 1000 }}
             >
                 <XR>
-                    <Controllers />
+                    {/* <Controllers /> */}
                     <Hands />
                     <ambientLight intensity={2} />
                     <Controls />
@@ -24,7 +24,6 @@ export default function CanvasWrapper() {
                     <Building />
                     <Panorama />
                 </XR>
-
             </Canvas>
         </>
 

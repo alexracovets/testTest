@@ -18,11 +18,7 @@ export default function SvgImage({ colors, opacity }) {
         const element = findElement(stateMenu.btns, 'color', colors[0]);
         element && setImage(element.name);
     }, [stateMenu.btns, colors]);
-    const test = useRef()
-
-    useEffect(() => {
-        console.log(test)
-    }, [test])
+    const test = useRef() 
     return (
         <group
             position={[-4, 0.2, -4]}
